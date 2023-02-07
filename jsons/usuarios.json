@@ -2,32 +2,32 @@
     "usuarios": [
         {
             "id": "1",
-            "username": "usuario1",
+            "username": "MaxiOzonas",
             "password": "password1"
         },
         {
             "id": "2",
-            "username": "usuario2",
+            "username": "MauroSagasti",
             "password": "password2"
         },
         {
             "id": "3",
-            "username": "usuario3",
+            "username": "LionelMessi",
             "password": "password3"
         },
         {
             "id": "4",
-            "username": "usuario4",
+            "username": "MartinPalermo",
             "password": "password4"
         },
         {
             "id": "5",
-            "username": "usuario5",
+            "username": "TuCopitodenieve",
             "password": "password5"
         },
         {
             "id": "6",
-            "username": "usuario6",
+            "username": "DevoraMundos",
             "password": "password6"
         }
     ]
