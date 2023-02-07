@@ -1,0 +1,16 @@
+{
+    "directores": [
+        {
+            "id": "1",
+            "nombre": "Steven Spielberg"
+        },
+        {
+            "id": "2",
+            "nombre": "Christopher Nolan"
+        },
+        {
+            "id": "3",
+            "nombre": "Stanley Kubrick"
+        }
+    ]
+}

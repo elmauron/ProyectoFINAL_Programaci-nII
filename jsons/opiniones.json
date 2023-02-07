@@ -1,0 +1,22 @@
+[
+    {
+        "id": "1",
+        "idUsuario": "1",
+        "opinion": "Muy buena"
+    },
+    {
+        "id": "2",
+        "idUsuario": "2",
+        "opinion": "Malisima"
+    },
+    {
+        "id": "3",
+        "idUsuario": "3",
+        "opinion": "Esto es peor que Matrix 4"
+    },
+    {
+        "id": "4",
+        "idUsuario": "4",
+        "opinion": "Que perdida de tiempo loco"
+    }
+]
