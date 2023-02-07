@@ -29,6 +29,7 @@ def login():
 @app.route("/welcome/<username>")
 def welcome(username):
     return render_template("welcome.html", username=username)
+    
 
 
 if __name__ == "__main__":
