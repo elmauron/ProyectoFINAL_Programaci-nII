@@ -21,6 +21,17 @@ def devolver_usuarios():
     print(type(usuarios))
     return jsonify(usuarios)
 
+# método GET usuarios por ID
+
+
+@app.route("/usuarios/<id>")
+def devolver_usuario_por_id(id):
+    id_int = int(id)
+    for usuario in usuarios["usuarios"]:
+        if usuario["id"] == id_int:
+            return usuario, 200
+    return {"message": "Usuario no encontrado"}, 404
+
 
 if __name__ == '__main__':
     app.run()
