@@ -1,26 +1,39 @@
 import json
-from flask import Flask, jsonify, Response, request
-from http import HTTPStatus
+from flask import Flask, request, redirect, url_for, render_template
+
 app = Flask(__name__)
 
-with open("jsons/usuarios.json", encoding='utf-8') as usuarios_json:
-    usuarios = json.load(usuarios_json)
-
+# Cargue los datos de los usuarios desde un archivo JSON
+with open("jsons/usuarios.json") as f:
+    usuarios = json.load(f)
+    print(usuarios)
 
 @app.route("/")
-def home():
-    return "Hello, Flask! ^_^ "
+def index():
+    return render_template("index.html")
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        for usuario in usuarios["usuarios"]:
+            if usuario['username'] == username and usuario['password']  == password:
+                return redirect(url_for("welcome", username=username))
+
+        
+
+    return render_template("login.html")
+
+@app.route("/welcome/<username>")
+def welcome(username):
+    return render_template("welcome.html", username=username)
 
 
-# endpoints para controlar usuarios
+if __name__ == "__main__":
+    app.run(debug=True)
 
 
-# método GET usuarios
-@app.route("/usuarios")
-def devolver_usuarios():
-    print(type(usuarios))
-    return jsonify(usuarios)
+    
 
-
-if __name__ == '__main__':
-    app.run()
