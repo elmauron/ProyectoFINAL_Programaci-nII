@@ -6,14 +6,21 @@ app = Flask(__name__)
 # Cargo los datos de los usuarios desde un archivo JSON
 with open("jsons/usuarios.json") as f:
     usuarios = json.load(f)
-    print(usuarios)
+    
+
+# Cargo los datos de las peliculas para el home
+with open ("jsons/peliculas.json") as f:
+    peliculas = json.load(f)
+    
 
 
 # Endpoint de pagina principal
 @app.route("/")
 def home():
-    return "CFKLDLNA"
-
+    peliculas_list = []
+    for pelicula in peliculas["peliculas"]:
+        peliculas_list.append(f"{pelicula['titulo']}, {pelicula['year']} - Directed by {pelicula['director']}")
+    return peliculas_list
 
 # método GET usuarios
 @app.route("/usuarios")
@@ -56,6 +63,7 @@ def login():
 @app.route("/welcome/<username>")
 def welcome(username):
     return render_template("welcome.html", username=username)
+    
     
 
 
