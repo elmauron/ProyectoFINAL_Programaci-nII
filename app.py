@@ -1,17 +1,8 @@
 import json
 from flask import Flask, jsonify, request, redirect, url_for, render_template
+from cargoJSONS import usuarios, peliculas
 
 app = Flask(__name__)
-
-# Cargo los datos de los usuarios desde un archivo JSON
-with open("jsons/usuarios.json") as f:
-    usuarios = json.load(f)
-    
-
-# Cargo los datos de las peliculas para el home
-with open ("jsons/peliculas.json") as f:
-    peliculas = json.load(f)
-    
 
 
 # Endpoint de pagina principal
@@ -25,18 +16,29 @@ def home():
 # método GET usuarios
 @app.route("/usuarios")
 def devolver_usuarios():
-    print(type(usuarios))
-    return jsonify(usuarios)
+    usuarios_result = usuarios()
+    print(type(usuarios_result))
+    return (usuarios_result)
 
 
 # método GET usuarios por ID
 @app.route("/usuarios/<id>")
 def devolver_usuario_por_id(id):
     id_int = int(id)
-    for usuario in usuarios["usuarios"]:
+    usuarios_result = usuarios()
+    for usuario in usuarios_result["usuarios"]:
         if usuario["id"] == id_int:
-            return usuario, 200
-    return {"message": "Usuario no encontrado"}, 404
+            return jsonify(usuario), 200
+    return jsonify({"message": "Usuario no encontrado"}), 404
+
+#  método GET peliculas
+
+
+@app.route("/peliculas")
+def devolver_peliculas():
+    peliculas_result = peliculas()
+    print(type(peliculas_result))
+    return (peliculas_result)
 
 
 # Endpoint de LOGIN
@@ -63,8 +65,6 @@ def login():
 @app.route("/welcome/<username>")
 def welcome(username):
     return render_template("welcome.html", username=username)
-    
-    
 
 
 if __name__ == "__main__":
