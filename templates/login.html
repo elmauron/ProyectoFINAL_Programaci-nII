@@ -5,25 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+    <!-- {{ url_for('static', filename='css/login.css') }} -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <title>Iniciar sesion</title>
 </head>
 <body>
     <div class="login-box">
-        <form action="{{ url_for('login') }}" method="post">
-            <h2>Datos invalidos. Intente nuevamente</h2>
+        <form action="{{ url_for('login', filename='logins.css') }}" method="post">
+            <h2>Inicia sesion</h2>
             <div class="input-box">
                 <span class="material-icons-round">
                     person
                 </span>
-                <input type="text" name="username">
+                <input type="text" name="username" autocomplete="off">
                 <label>Nombre de usuario</label>
             </div>
             <div class="input-box">
                 <span class="material-icons-round">
                     lock
                 </span>
-                <input type="password" name="password">
+                <input type="password" name="password" autocomplete="off">
                 <label>Contraseña</label>
             </div>
             <div class="remember-forgot">
@@ -41,10 +42,14 @@
 </body>
 </html>
 
+
 <!-- <h1>Inicio de Sesión</h1>
-<p>Las credenciales no son válidas. Por favor, inténtalo de nuevo.</p>
 <form action="{{ url_for('login') }}" method="post">
     <input type="text" name="username" placeholder="Nombre de usuario">
     <input type="password" name="password" placeholder="Contraseña">
     <input type="submit" value="Iniciar Sesión">
 </form> -->
+
+
+
+

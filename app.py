@@ -1,70 +1,42 @@
 import json
 from flask import Flask, jsonify, request, redirect, url_for, render_template
 from cargoJSONS import usuarios, peliculas
+from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login
 
 app = Flask(__name__)
 
 
 # Endpoint de pagina principal
 @app.route("/")
-def home():
-    peliculas_list = []
-    peliculas_result = peliculas()
-    for pelicula in peliculas_result["peliculas"]:
-        peliculas_list.append(
-            f"{pelicula['titulo']}, {pelicula['year']} - Directed by {pelicula['director']}")
-    return peliculas_list
+def ruta_home():
+    return home()
 
 
 # método GET usuarios
 @app.route("/usuarios")
-def devolver_usuarios():
-    usuarios_result = usuarios()
-    print(type(usuarios_result))
-    return (usuarios_result)
+def ruta_usuarios():
+    return devolver_usuarios()
 
 
 # método GET usuarios por ID
 @app.route("/usuarios/<id>")
-def devolver_usuario_por_id(id):
-    id_int = int(id)
-    usuarios_result = usuarios()
-    for usuario in usuarios_result["usuarios"]:
-        if usuario["id"] == id_int:
-            return jsonify(usuario), 200
-    return jsonify({"message": "Usuario no encontrado"}), 404
+def ruta_usuario_ID():
+    return devolver_usuario_por_id()
+
 
 #  método GET peliculas
-
-
 @app.route("/peliculas")
-def devolver_peliculas():
-    peliculas_result = peliculas()
-    print(type(peliculas_result))
-    return (peliculas_result)
+def ruta_peliculas():
+    return devolver_peliculas()
 
 
-# Endpoint de LOGIN
-@app.route("/login")
-def index():
-    return render_template("index.html")
-
-
-# Funcion para verificar LOGIN
+# Endpoint de LOGIN - Ruta que va a funciones.py, si el metodo es get nos devuelve un html de login, si el metodo es post nos
+# checkea que los datos son v'alidos y a partir de eso nos redirecciona a bad-login o welcome Endpoint
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if request.method == "POST":
-        username = request.form.get("username")
-        password = request.form.get("password")
-
-        for usuario in usuarios["usuarios"]:
-            if usuario['username'] == username and usuario['password'] == password:
-                return redirect(url_for("welcome", username=username))
-
-    return render_template("login.html")
+    return check_login()
 
 
-# Endpoint de logeados
 @app.route("/welcome/<username>")
 def welcome(username):
     return render_template("welcome.html", username=username)
