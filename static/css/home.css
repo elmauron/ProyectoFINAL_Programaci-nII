@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.movie {
+  margin-top: 50px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.year {
+  font-size: 24px;
+  color: gray;
+}
+
+.director {
+  font-size: 20px;
+}
+
+.cast {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.cast ul {
+  list-style: none;
+  padding: 0;
+}
