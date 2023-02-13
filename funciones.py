@@ -1,16 +1,28 @@
-
 import json
 from datetime import datetime
 from flask import Flask, jsonify, request, redirect, url_for, render_template
 from cargoJSONS import usuarios, peliculas, opiniones
 
 
+
+# Funciones para /home >>> Mostrar peliculas en pantalla + Buscar peliculas por director
 def home():
     peliculas_list = []
     peliculas_result = peliculas()
     for pelicula in peliculas_result["peliculas"]:
         peliculas_list.append(pelicula)
     return render_template("home.html", peliculas_list=peliculas_list)
+
+def buscar_pelicula():
+    director = request.form["director"]
+    resultados = []
+    peliculas_result = peliculas()
+    for pelicula in peliculas_result["peliculas"]:
+        if pelicula["director"] == director:
+            resultados.append(pelicula)
+    return render_template("resultados.html", director=director, resultados=resultados)
+      
+                         
 
 
 def devolver_usuarios():
@@ -27,11 +39,15 @@ def devolver_usuario_por_id(id):
             return jsonify(usuario), 200
     return jsonify({"message": "Usuario no encontrado"}), 404
 
-
+# Funciones para /home >>> Mostrar peliculas en pantalla + Buscar peliculas por director
 def devolver_peliculas():
     peliculas_result = peliculas()
     print(type(peliculas_result))
     return (peliculas_result)
+
+
+
+
 
 
 def check_login():

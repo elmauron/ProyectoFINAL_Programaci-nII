@@ -3,7 +3,7 @@
       {
         "id": 1,
         "titulo": "El Caballero de la Noche",
-        "director": "idDirector",
+        "director": "Christopher Nolan",
         "year": 2008,
         "genero": 3,
         "sinopsis": "El Caballero de la Noche asciende para proteger Gotham City de su peor enemigo, el Joker.",
@@ -12,7 +12,7 @@
       {
         "id": 2,
         "titulo": "EL origen",
-        "director":"idDirector",
+        "director":"Christopher Nolan",
         "year": 2010,
         "genero": "idGenero",
         "sinopsis": "Un ladrón especializado en la extracción se ofrece a penetrar en los sueños de un hombre para implantar una idea en su subconsciente.",
@@ -21,7 +21,7 @@
       {
         "id": 3,
         "titulo": "La Lista de Schindler",
-        "director": "idDirector",
+        "director": "Steven Spielberg",
         "year": 1993,
         "genero": "idGenero",
         "sinopsis": "Durante la Segunda Guerra Mundial, un empresario alemán protege a más de mil judíos de ser perseguidos y asesinados por los nazis.",
@@ -30,7 +30,7 @@
       {
         "id": 4,
         "titulo": "Parque Jurasico",
-        "director": "idDirector",
+        "director": "Steven Spielberg",
         "year": 1993,
         "genero": "idGenero",
         "sinopsis": "Cuando un grupo de visitantes llega a un parque temático donde se clonan dinosaurios, un fallo técnico provoca que se suelten los monstruos y comience la lucha por sobrevivir.",
@@ -39,7 +39,7 @@
       {
         "id": 5,
         "titulo": "2001: Odisea del Espacio",
-        "director": "idDirector",
+        "director": "Stanley Kubrick",
         "year": 1968,
         "genero": "idGenero",
         "sinopsis": "Una odisea a través del tiempo y del espacio que sigue a un grupo de astronautas y a un superordenador llamado HAL 9000 en su misión a Júpiter.",
@@ -48,7 +48,7 @@
       {
         "id": 6,
         "titulo": "La Naranja Mecanica",
-        "director": "idDirector",
+        "director": "Stanley Kubrick",
         "year": 1971,
         "genero": "idGenero",
         "sinopsis": "Un joven delincuente lidera un grupo de delinc"
@@ -56,7 +56,7 @@
       {
         "id": 7,
         "titulo": "Dunquerque",
-        "director": "idDirector",
+        "director": "Christopher Nolan",
         "year": 2017,
         "genero": "idGenero",
         "sinopsis": "Durante la Segunda Guerra Mundial, los soldados británicos y aliados están rodeados por el enemigo y luchan por sobrevivir en las playas de Dunkirk mientras esperan su evacuación.",
@@ -65,7 +65,7 @@
       {
         "id": 8,
         "titulo": "Munich",
-        "director": "idDirector",
+        "director": "Steven Spielberg",
         "year": 2005,
         "genero": "idGenero",
         "sinopsis": "Una equipo de cinco hombres es enviado por el gobierno israelí para vengar la muerte de atletas israelíes en los Juegos Olímpicos de Munich de 1972.",
@@ -74,7 +74,7 @@
       {
         "id": 9,
         "titulo": "Ojos bien cerrados",
-        "director": "idDirector",
+        "director": "Stanley Kubrick",
         "year": 1999,
         "genero": "idGenero",
         "sinopsis": "Después de la muerte de una amiga, un médico se sumerge en un mundo secreto de orgías y rituales oscuros en Nueva York.",
@@ -83,7 +83,7 @@
       {
         "id": 10,
         "titulo": "El Resplandor",
-        "director": "idDirector",
+        "director": "Stanley Kubrick",
         "year": 1980,
         "genero": "idGenero",
         "sinopsis": "Un escritor acepta un trabajo como guardián de un hotel de montaña durante el invierno y se encuentra luchando contra fuerzas sobrenaturales malignas.",

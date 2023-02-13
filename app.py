@@ -1,7 +1,7 @@
 import json
 from flask import Flask, jsonify, request, redirect, url_for, render_template
 from cargoJSONS import usuarios, peliculas
-from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login, agregar_comentario
+from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login, agregar_comentario, buscar_pelicula
 
 app = Flask(__name__)
 
@@ -10,6 +10,11 @@ app = Flask(__name__)
 @app.route("/")
 def ruta_home():
     return home()
+
+
+@app.route("/resultados", methods=["POST"])
+def ruta_resultados():
+    return buscar_pelicula()
 
 
 # método GET usuarios

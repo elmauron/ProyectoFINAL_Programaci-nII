@@ -10,6 +10,10 @@
 </head>
 <body>
   <div class="container">
+    <form action="/resultados" method="post">
+      <input type="text" name="director" placeholder="Enter director name">
+      <input type="submit" value="Search">
+    </form>
     {% for pelicula in peliculas_list %}
       <div class="movie">
         <div class="title">{{ pelicula.titulo }}</div>
@@ -18,6 +22,10 @@
       </div>
     {% endfor %}
   </div>
+
+  
+
+
       
 </body>
 </html>
