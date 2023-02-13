@@ -9,6 +9,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     peliculas_list = []
+    peliculas_list = peliculas()
     for pelicula in peliculas["peliculas"]:
         peliculas_list.append(pelicula)
     return render_template("home.html", peliculas_list=peliculas_list)
@@ -43,13 +44,13 @@ def devolver_peliculas():
 
 # Endpoint de LOGIN
 @app.route("/login")
-def index():
-    return render_template("index.html")
+def login():
+    return render_template("login.html")
 
 
 # Funcion para verificar LOGIN
 @app.route("/login", methods=["GET", "POST"])
-def login():
+def check_login():
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
@@ -58,7 +59,7 @@ def login():
             if usuario['username'] == username and usuario['password'] == password:
                 return redirect(url_for("welcome", username=username))
 
-    return render_template("login.html")
+    return render_template("bad-login.html")
 
 
 # Endpoint de logeados
