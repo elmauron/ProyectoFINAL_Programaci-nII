@@ -5,18 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <title>Home</title>
 </head>
 <body>
-    <ul>
-        {% for pelicula in peliculas %}
-          <li>
-            <h2>{{ pelicula["titulo"] }}</h2>
-            <p>Año: {{ pelicula["year"] }}</p>
-            <p>Director: {{ pelicula["director"] }}</p>
-          </li>
-        {% endfor %}
-      </ul>
+  <div class="container">
+    {% for pelicula in peliculas_list %}
+      <div class="movie">
+        <div class="title">{{ pelicula.titulo }}</div>
+        <div class="year">{{ pelicula.year }}</div>
+        <div class="director">Directed by {{ pelicula.director }}</div>
+      </div>
+    {% endfor %}
+  </div>
       
 </body>
 </html>

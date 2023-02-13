@@ -19,8 +19,8 @@ with open ("jsons/peliculas.json") as f:
 def home():
     peliculas_list = []
     for pelicula in peliculas["peliculas"]:
-        peliculas_list.append(f"{pelicula['titulo']}, {pelicula['year']} - Directed by {pelicula['director']}")
-    return peliculas_list
+        peliculas_list.append(pelicula)
+    return render_template("home.html", peliculas_list=peliculas_list)
 
 # método GET usuarios
 @app.route("/usuarios")
