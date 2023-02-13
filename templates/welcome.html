@@ -1,1 +1,30 @@
-<h1>Bienvenido, Usuario!</h1>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/welcome.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Bienvenido {{username}}!</h1>
+    </header>
+    <main>
+        <p>Te has logeado correctamente.</p>
+
+        {% for comentario in opiniones %}
+        <p>{{ comentario.usuario }} says: {{ comentario.text }}</p>
+        {% endfor %}
+
+        <form action="/add_comment" method="post">
+            <input type="hidden" name="username" value="{{ username }}">
+            <textarea name="comment"></textarea>
+            <button type="submit">Agregar comentario</button>
+        </form>
+
+    </main>
+</body>
+
+</html>

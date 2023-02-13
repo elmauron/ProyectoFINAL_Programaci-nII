@@ -1,7 +1,7 @@
 import json
 from flask import Flask, jsonify, request, redirect, url_for, render_template
 from cargoJSONS import usuarios, peliculas
-from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login
+from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login, agregar_comentario
 
 app = Flask(__name__)
 
@@ -40,6 +40,14 @@ def login():
 @app.route("/welcome/<username>")
 def welcome(username):
     return render_template("welcome.html", username=username)
+
+
+@app.route("/add_comment", methods=["POST"])
+def add_comment():
+    username = request.form.get("username")
+    comment = request.form.get("comment")
+    agregar_comentario(username, comment)
+    return redirect(url_for("welcome", username=username))
 
 
 if __name__ == "__main__":

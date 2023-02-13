@@ -1,7 +1,8 @@
 
 import json
+from datetime import datetime
 from flask import Flask, jsonify, request, redirect, url_for, render_template
-from cargoJSONS import usuarios, peliculas
+from cargoJSONS import usuarios, peliculas, opiniones
 
 
 def home():
@@ -49,3 +50,20 @@ def check_login():
                 return redirect(url_for("welcome", username=username))
 
     return render_template("bad-login.html")
+
+
+def agregar_comentario(usuario, comentario):
+
+    comment_info = {"username": usuario, "text": comentario,
+                    "timestamp": str(datetime.now())}
+    comentarios = []
+    try:
+        with open("jsons/opiniones.json", "r") as file:
+            comentarios = json.load(file)
+    except:
+        pass
+
+    comentarios["comentarios"].append(comment_info)
+
+    with open("jsons/opiniones.json", "w") as file:
+        json.dump(comentarios, file)
