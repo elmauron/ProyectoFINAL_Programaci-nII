@@ -1,47 +1,45 @@
 import json
 from flask import Flask, jsonify, request, redirect, url_for, render_template
 from cargoJSONS import usuarios, peliculas
+from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login
 
 app = Flask(__name__)
 
 
 # Endpoint de pagina principal
 @app.route("/")
+<<<<<<< HEAD
 def home():
     peliculas_list = []
     peliculas_list = peliculas()
     for pelicula in peliculas["peliculas"]:
         peliculas_list.append(pelicula)
     return render_template("home.html", peliculas_list=peliculas_list)
+=======
+def ruta_home():
+    return home()
+
+>>>>>>> b470a263a6fd8b815c90f841e4d4d01751517fa3
 
 # método GET usuarios
 @app.route("/usuarios")
-def devolver_usuarios():
-    usuarios_result = usuarios()
-    print(type(usuarios_result))
-    return (usuarios_result)
+def ruta_usuarios():
+    return devolver_usuarios()
 
 
 # método GET usuarios por ID
 @app.route("/usuarios/<id>")
-def devolver_usuario_por_id(id):
-    id_int = int(id)
-    usuarios_result = usuarios()
-    for usuario in usuarios_result["usuarios"]:
-        if usuario["id"] == id_int:
-            return jsonify(usuario), 200
-    return jsonify({"message": "Usuario no encontrado"}), 404
+def ruta_usuario_ID():
+    return devolver_usuario_por_id()
+
 
 #  método GET peliculas
-
-
 @app.route("/peliculas")
-def devolver_peliculas():
-    peliculas_result = peliculas()
-    print(type(peliculas_result))
-    return (peliculas_result)
+def ruta_peliculas():
+    return devolver_peliculas()
 
 
+<<<<<<< HEAD
 # Endpoint de LOGIN
 @app.route("/login")
 def login():
@@ -60,9 +58,15 @@ def check_login():
                 return redirect(url_for("welcome", username=username))
 
     return render_template("bad-login.html")
+=======
+# Endpoint de LOGIN - Ruta que va a funciones.py, si el metodo es get nos devuelve un html de login, si el metodo es post nos
+# checkea que los datos son v'alidos y a partir de eso nos redirecciona a bad-login o welcome Endpoint
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    return check_login()
+>>>>>>> b470a263a6fd8b815c90f841e4d4d01751517fa3
 
 
-# Endpoint de logeados
 @app.route("/welcome/<username>")
 def welcome(username):
     return render_template("welcome.html", username=username)
