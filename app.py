@@ -8,7 +8,12 @@ app = Flask(__name__)
 # Endpoint de pagina principal
 @app.route("/")
 def home():
-    return "CFKLDLNA"
+    peliculas_list = []
+    peliculas_result = peliculas()
+    for pelicula in peliculas_result["peliculas"]:
+        peliculas_list.append(
+            f"{pelicula['titulo']}, {pelicula['year']} - Directed by {pelicula['director']}")
+    return peliculas_list
 
 
 # método GET usuarios
