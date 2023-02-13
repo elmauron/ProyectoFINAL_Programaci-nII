@@ -10,10 +10,10 @@
 </head>
 <body>
   <div class="container">
-    <div class="directores">
-      <input type="text" name="nombre-director">
-      <label>Director</label>
-    </div>
+    <form action="/resultados" method="post">
+      <input type="text" name="director" placeholder="Enter director name">
+      <input type="submit" value="Search">
+    </form>
     {% for pelicula in peliculas_list %}
       <div class="movie">
         <div class="title">{{ pelicula.titulo }}</div>
@@ -21,8 +21,6 @@
         <div class="director">Directed by {{ pelicula.director }}</div>
       </div>
     {% endfor %}
-
-    
   </div>
 
   
