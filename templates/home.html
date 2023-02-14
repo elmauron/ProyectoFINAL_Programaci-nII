@@ -22,35 +22,23 @@
     </form>
   </div>
 
-  <!-- <div class="text-center">
-      <div class="peliculas row">
-        {% for pelicula in peliculas_list %}
-        <div class="pelicula col-lg-3 col-md-6">
-          
-          <img src="{{ pelicula.imagen }}" alt="">
-          <p class="titulo">{{ pelicula.titulo }}</p>
-        </div>
-        {% endfor %}
-      </div>
-    </div> -->
-
-    <div class="container">
-      <div class="row">
-        {% for pelicula in peliculas_list %}
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="card">
-            <img src="{{ pelicula.imagen }}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{ pelicula.titulo }}</h5>
-              <p class="card-text">ANO:  {{ pelicula.year }}</p>
-              <p class="card-text">DIRECTOR: {{ pelicula.director }}</p>
-            </div>
+  <div class="container">
+    <div class="row">
+      {% for pelicula in peliculas_list %}
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card">
+          <img src="{{ pelicula.imagen }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ pelicula.titulo }}</h5>
+            <p class="card-text">ANO: {{ pelicula.year }}</p>
+            <p class="card-text">DIRECTOR: {{ pelicula.director }}</p>
           </div>
         </div>
-        {% endfor %}
       </div>
+      {% endfor %}
     </div>
-    
+  </div>
+
 
 
 
