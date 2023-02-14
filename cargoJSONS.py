@@ -15,3 +15,9 @@ def peliculas():
     with open("jsons/peliculas.json") as f:
         peliculas = json.load(f)
     return peliculas
+
+
+def opiniones():
+    with open("jsons/opiniones.json") as f:
+        opiniones = json.load(f)
+    return opiniones
