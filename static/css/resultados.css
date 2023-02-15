@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    color: white !important;
+    background: url(/static/img/home.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .titulo {
+    text-transform: uppercase;
+  }
+  
+  .card-img-top {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  
+  .card {
+    margin: 10px auto;
+    width: 100%;
+  }
+  
+  .card-body {
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black !important;
+  }
+  
+  .card-body h5 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1em;
+    color: black;
+  }
