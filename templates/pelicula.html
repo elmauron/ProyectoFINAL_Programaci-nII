@@ -25,11 +25,12 @@
     </ul>
     {% endif %}
 
-    <form action="{{ url_for('ruta_pelicula', usuario_actual=usuario_actual, id=pelicula.id) }}" method="POST">
-        <input type="hidden" name="pelicula_id" value="{{ pelicula.id }}">
-        <textarea name="comentario" required></textarea>
-        <button type="submit">Agregar Comentario</button>
+    <form method="POST" action="{{ url_for('ruta_pelicula', usuario_actual=usuario_actual, id=pelicula.id) }}">
+        <label for="comment">Add a Comment:</label><br>
+        <textarea id="comment" name="comment" required></textarea><br>
+        <button type="submit">Submit</button>
     </form>
+
 </body>
 
 </html>

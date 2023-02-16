@@ -69,7 +69,7 @@ def check_login():
 
         for usuario in usuarios_result["usuarios"]:
             if usuario['username'] == current_user and usuario['password'] == password:
-                return redirect(url_for("welcome", usuario_actual=current_user))
+                return redirect(url_for("ruta_welcome", usuario_actual=current_user))
 
     return render_template("bad-login.html")
 
@@ -104,15 +104,16 @@ def cargar_comentario(usuario, comentario, id):
 
 def peliculasCRUD(usuario_actual, id):
     print("peliculasCRUD called")
+    print(request.method)
 
     if request.method == "GET":
         peliculas_result = peliculas()
         for pelicula in peliculas_result["peliculas"]:
             if pelicula["id"] == id:
-                return render_template("pelicula.html", pelicula=pelicula)
+                return render_template("pelicula.html", pelicula=pelicula, usuario_actual=usuario_actual)
 
     if request.method == "POST":
         print("llego a post")
-        comment = request.form.get("comment")
+        comment = request.form.get("comentario")
         cargar_comentario(usuario_actual, comment, id)
-        return redirect(url_for("ruta_pelicula", usuario_actual=usuario_actual, id=id))
+        return redirect(url_for("ruta_pelicula"))
