@@ -88,23 +88,27 @@ def welcome(usuario_actual):
 # Despues se agrega el nuevo comentario a la lista de comentarios.
 
 
-def cargar_comentario(usuario, comentario, id):
-    print(comentario)
-    comment_info = {"ususario": usuario, "texto": comentario,
-                    "hora": str(datetime.now()), "pelicula_id": id}
-    pelis = peliculas()
+def cargar_comentario(usuario, comment, id_int):
 
-    for pelicula in pelis:
-        if pelicula["id"] == id:
+    print(comment)
+
+    comment_info = {"ususario": usuario, "texto": comment,
+                    "hora": str(datetime.now()), "pelicula_id": id_int}
+
+    peliculas_result = peliculas()
+
+    for pelicula in peliculas_result["peliculas"]:
+        if pelicula["id"] == id_int:
             pelicula["comentarios"].append(comment_info)
 
     with open("jsons/peliculas.json", "w") as file:
-        json.dump(pelis, file)
+        json.dump(peliculas_result, file)
 
 
 def peliculasCRUD(usuario_actual, id):
     print("peliculasCRUD called")
     print(request.method)
+    id_int = int(id)
 
     if request.method == "GET":
         peliculas_result = peliculas()
@@ -114,6 +118,7 @@ def peliculasCRUD(usuario_actual, id):
 
     if request.method == "POST":
         print("llego a post")
-        comment = request.form.get("comment")
-        cargar_comentario(usuario_actual, comment, id)
-        return redirect(url_for("ruta_pelicula"))
+        comment = request.form.get("comentario")
+        print(comment)
+        cargar_comentario(usuario_actual, comment, id_int)
+        return redirect(url_for("ruta_pelicula", usuario_actual=usuario_actual, id=id))
