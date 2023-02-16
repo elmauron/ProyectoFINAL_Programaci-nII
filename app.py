@@ -52,21 +52,8 @@ def ruta_welcome(usuario_actual):
 def ruta_pelicula(usuario_actual, id):
     return peliculasCRUD(usuario_actual, id)
 
-# Ruta para bienvenida >> se pasan el parámetro de "usuario_actual" que es el usuario tomado desde LOGIN
-@app.route("/welcome/<usuario_actual>")
-def ruta_welcome(usuario_actual):
-    return welcome(usuario_actual)
-
-
-@app.route("/welcome/<usuario_actual>/<int:id>", methods=["GET", "POST"])
-def ruta_pelicula(usuario_actual, id):
-    return peliculasCRUD(usuario_actual, id)
-
-
 if __name__ == "__main__":
     app.run(debug=True)
 
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
