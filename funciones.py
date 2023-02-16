@@ -15,6 +15,7 @@ def home():
 
 def buscar_pelicula():
     director = request.form["director"]
+    director.upper()
     resultados = []
     peliculas_result = peliculas()
     for pelicula in peliculas_result["peliculas"]:
