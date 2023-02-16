@@ -16,7 +16,7 @@
       "director": "Christopher Nolan",
       "year": 2010,
       "genero": "idGenero",
-      "sinopsis": "Un ladrón especializado en la extracción se ofrece a penetrar en los sueños de un hombre para implantar una idea en su subconsciente.",
+      "sinopsis": "Un ladr\u00c3\u00b3n especializado en la extracci\u00c3\u00b3n se ofrece a penetrar en los sue\u00c3\u00b1os de un hombre para implantar una idea en su subconsciente.",
       "imagen": "/static/img/origen-poster.jpg",
       "comentarios": []
     },
@@ -26,7 +26,7 @@
       "director": "Steven Spielberg",
       "year": 1993,
       "genero": "idGenero",
-      "sinopsis": "Durante la Segunda Guerra Mundial, un empresario alemán protege a más de mil judíos de ser perseguidos y asesinados por los nazis.",
+      "sinopsis": "Durante la Segunda Guerra Mundial, un empresario alem\u00c3\u00a1n protege a m\u00c3\u00a1s de mil jud\u00c3\u00ados de ser perseguidos y asesinados por los nazis.",
       "imagen": "/static/img/schindler-poster.jpg",
       "comentarios": []
     },
@@ -36,7 +36,7 @@
       "director": "Steven Spielberg",
       "year": 1993,
       "genero": "idGenero",
-      "sinopsis": "Cuando un grupo de visitantes llega a un parque temático donde se clonan dinosaurios, un fallo técnico provoca que se suelten los monstruos y comience la lucha por sobrevivir.",
+      "sinopsis": "Cuando un grupo de visitantes llega a un parque tem\u00c3\u00a1tico donde se clonan dinosaurios, un fallo t\u00c3\u00a9cnico provoca que se suelten los monstruos y comience la lucha por sobrevivir.",
       "imagen": "/static/img/jurasic-poster.jpg",
       "comentarios": []
     },
@@ -46,7 +46,7 @@
       "director": "Stanley Kubrick",
       "year": 1968,
       "genero": "idGenero",
-      "sinopsis": "Una odisea a través del tiempo y del espacio que sigue a un grupo de astronautas y a un superordenador llamado HAL 9000 en su misión a Júpiter.",
+      "sinopsis": "Una odisea a trav\u00c3\u00a9s del tiempo y del espacio que sigue a un grupo de astronautas y a un superordenador llamado HAL 9000 en su misi\u00c3\u00b3n a J\u00c3\u00bapiter.",
       "imagen": "/static/img/odisea-poster.jpg",
       "comentarios": []
     },
@@ -66,7 +66,7 @@
       "director": "Christopher Nolan",
       "year": 2017,
       "genero": "idGenero",
-      "sinopsis": "Durante la Segunda Guerra Mundial, los soldados británicos y aliados están rodeados por el enemigo y luchan por sobrevivir en las playas de Dunkirk mientras esperan su evacuación.",
+      "sinopsis": "Durante la Segunda Guerra Mundial, los soldados brit\u00c3\u00a1nicos y aliados est\u00c3\u00a1n rodeados por el enemigo y luchan por sobrevivir en las playas de Dunkirk mientras esperan su evacuaci\u00c3\u00b3n.",
       "imagen": "/static/img/dunkirk-poster.jpg",
       "comentarios": []
     },
@@ -76,7 +76,7 @@
       "director": "Steven Spielberg",
       "year": 2005,
       "genero": "idGenero",
-      "sinopsis": "Una equipo de cinco hombres es enviado por el gobierno israelí para vengar la muerte de atletas israelíes en los Juegos Olímpicos de Munich de 1972.",
+      "sinopsis": "Una equipo de cinco hombres es enviado por el gobierno israel\u00c3\u00ad para vengar la muerte de atletas israel\u00c3\u00ades en los Juegos Ol\u00c3\u00admpicos de Munich de 1972.",
       "imagen": "/static/img/munich-poster.jpg",
       "comentarios": []
     },
@@ -86,7 +86,7 @@
       "director": "Stanley Kubrick",
       "year": 1999,
       "genero": "idGenero",
-      "sinopsis": "Después de la muerte de una amiga, un médico se sumerge en un mundo secreto de orgías y rituales oscuros en Nueva York.",
+      "sinopsis": "Despu\u00c3\u00a9s de la muerte de una amiga, un m\u00c3\u00a9dico se sumerge en un mundo secreto de org\u00c3\u00adas y rituales oscuros en Nueva York.",
       "imagen": "/static/img/ojos-poster.jpg",
       "comentarios": []
     },
@@ -96,7 +96,7 @@
       "director": "Stanley Kubrick",
       "year": 1980,
       "genero": "idGenero",
-      "sinopsis": "Un escritor acepta un trabajo como guardián de un hotel de montaña durante el invierno y se encuentra luchando contra fuerzas sobrenaturales malignas.",
+      "sinopsis": "Un escritor acepta un trabajo como guardi\u00c3\u00a1n de un hotel de monta\u00c3\u00b1a durante el invierno y se encuentra luchando contra fuerzas sobrenaturales malignas.",
       "imagen": "/static/img/resplandor-poster.jpg",
       "comentarios": []
     }

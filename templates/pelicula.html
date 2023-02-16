@@ -11,8 +11,6 @@
     <p><strong>Año:</strong> {{ pelicula.anio }}</p>
     <p><strong>Sinopsis:</strong> {{ pelicula.sinopsis }}</p>
 
-    <h2>Comentarios</h2>
-
     {% if pelicula.comentarios %}
     <h2>Comentarios:</h2>
     <ul>
@@ -27,7 +25,7 @@
 
     <form method="POST" action="{{ url_for('ruta_pelicula', usuario_actual=usuario_actual, id=pelicula.id) }}">
         <label for="comment">Add a Comment:</label><br>
-        <textarea id="comment" name="comment" required></textarea><br>
+        <textarea id="comentario" name="comentario" required></textarea><br>
         <button type="submit">Submit</button>
     </form>
 
