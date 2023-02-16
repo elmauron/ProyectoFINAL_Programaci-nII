@@ -18,6 +18,7 @@ def home():
 # con estructura de datos en python de peliculas y acorde a lo que matchee, las devuelve.
 def buscar_pelicula():
     director = request.form["director"]
+    director.upper()
     resultados = []
     peliculas_result = peliculas()
     for pelicula in peliculas_result["peliculas"]:
