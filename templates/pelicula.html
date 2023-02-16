@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ pelicula.titulo }}</title>
+</head>
+
+<body>
+    <h1>{{ pelicula.titulo }}</h1>
+    <p><strong>Director:</strong> {{ pelicula.director }}</p>
+    <p><strong>Año:</strong> {{ pelicula.anio }}</p>
+    <p><strong>Sinopsis:</strong> {{ pelicula.sinopsis }}</p>
+
+    <h2>Comentarios</h2>
+
+    {% if pelicula.comentarios %}
+    <h2>Comentarios:</h2>
+    <ul>
+        {% for comentario in pelicula.comentarios %}
+        <li>
+            <strong>{{ comentario.usuario }}:</strong>
+            {{ comentario.texto }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action="{{ url_for('ruta_pelicula', usuario_actual=usuario_actual, id=pelicula.id) }}" method="POST">
+        <input type="hidden" name="pelicula_id" value="{{ pelicula.id }}">
+        <textarea name="comentario" required></textarea>
+        <button type="submit">Agregar Comentario</button>
+    </form>
+</body>
+
+</html>
