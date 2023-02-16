@@ -1,7 +1,7 @@
 import json
 from flask import Flask, jsonify, request, redirect, url_for, render_template
 from cargoJSONS import usuarios, peliculas
-from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login, welcome, cargar_comentario, buscar_pelicula, peliculasCRUD
+from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login, welcome, buscar_pelicula, peliculasCRUD
 
 app = Flask(__name__)
 
@@ -45,7 +45,7 @@ def login():
 # Ruta para bienvenida >> se pasan el parámetro de "usuario_actual" que es el usuario tomado desde LOGIN
 @app.route("/welcome/<usuario_actual>")
 def ruta_welcome(usuario_actual):
-    return welcome(usuario_actual)
+    return welcome(usuario_actual), buscar_pelicula()
 
 
 @app.route("/welcome/<usuario_actual>/<int:id>", methods=["GET", "POST"])
