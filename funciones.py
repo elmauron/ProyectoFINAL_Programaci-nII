@@ -114,6 +114,6 @@ def peliculasCRUD(usuario_actual, id):
 
     if request.method == "POST":
         print("llego a post")
-        comment = request.form.get("comentario")
+        comment = request.form.get("comment")
         cargar_comentario(usuario_actual, comment, id)
         return redirect(url_for("ruta_pelicula"))
