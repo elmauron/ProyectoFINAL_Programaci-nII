@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+body {
+    color: white !important;
+    background: url(/static/img/home.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.input-container {
+    width: 100%;
+    padding: 10px 0 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, .5);
+}
+
+.search-bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 4px 20px;
+    font-size: 20px;
+    color: black !important;
+
+}
+
+.search-bar button {
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.search-bar button span {
+    color: red;
+    font-size: 2em;
+}
+
+/* Estilos peliculas */
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo {
+    text-transform: uppercase;
+}
+
+.card-img-top {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.card {
+    margin: 10px auto;
+    width: 100%;
+}
+
+.card-body {
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black !important;
+}
+
+.card-body h5 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1em;
+    color: black;
+}
