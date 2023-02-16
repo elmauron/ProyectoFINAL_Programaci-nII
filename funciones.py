@@ -62,6 +62,6 @@ def check_login():
 
         for usuario in usuarios_result["usuarios"]:
             if usuario['username'] == username and usuario['password'] == password:
-                return redirect(url_for("welcome", username=username))
+                return redirect(url_for("ruta_welcome", username=username))
 
     return render_template("bad-login.html")
