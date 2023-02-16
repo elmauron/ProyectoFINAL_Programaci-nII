@@ -4,6 +4,10 @@ from flask import Flask, jsonify
 
 # Cargo los datos de los usuarios desde un archivo JSON
 
+# Las funciones leen el contenido de los archivos ".json" en formato JSON
+# y los cargan en un variables llamadas usuarios/peliculas/etc, que son estructuras de datos en Python (listas o diccionarios).
+# Luego, las funciones devuelven estas variables.
+
 
 def usuarios():
     with open("jsons/usuarios.json") as f:
@@ -12,12 +16,9 @@ def usuarios():
 
 
 def peliculas():
-    with open("jsons/peliculas.json") as f:
-        peliculas = json.load(f)
+    try:
+        with open("jsons/peliculas.json", "r") as file:
+            peliculas = json.load(file)
+    except:
+        peliculas = {"comentarios": []}
     return peliculas
-
-
-def opiniones():
-    with open("jsons/opiniones.json") as f:
-        opiniones = json.load(f)
-    return opiniones

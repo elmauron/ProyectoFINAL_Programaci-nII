@@ -1,7 +1,7 @@
 import json
 from flask import Flask, jsonify, request, redirect, url_for, render_template
 from cargoJSONS import usuarios, peliculas
-from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login, agregar_comentario, buscar_pelicula
+from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login, welcome, cargar_comentario, buscar_pelicula, peliculasCRUD
 
 app = Flask(__name__)
 
@@ -36,23 +36,21 @@ def ruta_peliculas():
 
 
 # Endpoint de LOGIN - Ruta que va a funciones.py, si el metodo es get nos devuelve un html de login, si el metodo es post nos
-# checkea que los datos son v'alidos y a partir de eso nos redirecciona a bad-login o welcome Endpoint
+# checkea que los datos son validos y a partir de eso nos redirecciona a bad-login o welcome Endpoint
 @app.route("/login", methods=["GET", "POST"])
 def login():
     return check_login()
 
 
-@app.route("/welcome/<username>")
-def welcome(username):
-    return render_template("welcome.html", username=username)
+# Ruta para bienvenida >> se pasan el parámetro de "usuario_actual" que es el usuario tomado desde LOGIN
+@app.route("/welcome/<usuario_actual>")
+def ruta_welcome(usuario_actual):
+    return welcome(usuario_actual)
 
 
-@app.route("/add_comment", methods=["POST"])
-def add_comment():
-    username = request.form.get("username")
-    comment = request.form.get("comment")
-    agregar_comentario(username, comment)
-    return redirect(url_for("welcome", username=username))
+@app.route("/welcome/<usuario_actual>/<int:id>", methods=["GET", "POST"])
+def ruta_pelicula(usuario_actual, id):
+    return peliculasCRUD(usuario_actual, id)
 
 
 if __name__ == "__main__":
