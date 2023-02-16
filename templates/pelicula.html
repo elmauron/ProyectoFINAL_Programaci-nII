@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-lg-3 img">
             <img c src="{{ pelicula.imagen }}" alt="">
             <p>Director: {{ pelicula.director }}</p>
@@ -22,7 +22,7 @@
         <div class="contenido col-lg-3">
             <form method="POST" action="{{ url_for('ruta_pelicula', usuario_actual=usuario_actual, id=pelicula.id) }}">
                 <label for="comment">Add a Comment:</label><br>
-                <textarea id="comment" name="comment" required></textarea><br>
+                <textarea id="comment" name="comentario" required></textarea><br>
                 <button type="submit">Submit</button>
             </form>
             {% if pelicula.comentarios %}
@@ -38,7 +38,29 @@
         </div>
 
         </div>
-    </div>
+    </div> -->
+    <h1>{{ pelicula.titulo }}</h1>
+    <p><strong>Director:</strong> {{ pelicula.director }}</p>
+    <p><strong>Año:</strong> {{ pelicula.anio }}</p>
+    <p><strong>Sinopsis:</strong> {{ pelicula.sinopsis }}</p>
+
+    {% if pelicula.comentarios %}
+    <h2>Comentarios:</h2>
+    <ul>
+        {% for comentario in pelicula.comentarios %}
+        <li>
+            <strong>{{ comentario.usuario }}:</strong>
+            {{ comentario.texto }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('ruta_pelicula', usuario_actual=usuario_actual, id=pelicula.id) }}">
+        <label for="comment">Add a Comment:</label><br>
+        <textarea id="comentario" name="comentario" required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
 
