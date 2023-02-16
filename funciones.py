@@ -17,14 +17,15 @@ def home():
 # Funcion para buscar peliculas de directores especificos >> itera sobre la variable proveniente del archivo cargoJSONS.py
 # con estructura de datos en python de peliculas y acorde a lo que matchee, las devuelve.
 def buscar_pelicula():
-    director = request.form["director"]
-    director.upper()
+    busqueda = request.form["busqueda"]
+    busqueda = busqueda.upper()  # Convertir a mayúsculas
     resultados = []
     peliculas_result = peliculas()
     for pelicula in peliculas_result["peliculas"]:
-        if pelicula["director"] == director:
+        if pelicula["director"].upper() == busqueda or pelicula["titulo"].upper() == busqueda:
             resultados.append(pelicula)
-    return render_template("resultados.html", director=director, resultados=resultados)
+    return render_template("resultados.html", busqueda=busqueda, resultados=resultados)
+
 
 
 # Funcion para devolver la lista de usuarios con sus respectivos datos >> guarda los datos en "usuarios_result" y los imprime por consola.
