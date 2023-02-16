@@ -110,9 +110,4 @@ def peliculasCRUD(usuario_actual, id):
         for pelicula in peliculas_result["peliculas"]:
             if pelicula["id"] == id:
                 return render_template("pelicula.html", pelicula=pelicula)
-
-    if request.method == "POST":
-        print("llego a post")
-        comment = request.form.get("comment")
-        cargar_comentario(usuario_actual, comment, id)
-        return redirect(url_for("ruta_pelicula", usuario_actual=usuario_actual, id=id))
+            
