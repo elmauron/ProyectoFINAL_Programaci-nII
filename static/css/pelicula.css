@@ -15,15 +15,8 @@ body {
 
 header {
     margin-bottom: 20px;
-}
-
-header .h1 {
-    text-transform: uppercase;
-
-}
-
-h1 {
-    text-align: center;
+    display: flex;
+    justify-content: space-around;
 }
 
 img {
@@ -42,7 +35,7 @@ img {
     background-position: center;
 }
   
-  .card-body {
+.card-body {
     background-color: gray;
     display: flex;
     flex-direction: column;
@@ -83,6 +76,16 @@ button {
     font-weight: 500;
     margin-bottom: 10px;
 }
+
+.button {
+    color: red;
+    border-radius: 50px;
+    text-decoration: none;
+    background-color: transparent;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, .5);
+    padding: 10px 20px;
+  }
 
 
 li {
