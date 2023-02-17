@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/agregar.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+  <div class="form-box">
+    <form method="POST" action="{{ url_for('ruta_agregar', usuario_actual=usuario_actual) }}">
+      <h2>Agrega tu pelicula</h2>
+      <div class="input-box">
+        <input type="text" name="titulo" required><br>
+        <label for="titulo">Titulo</label>
+      </div>
+      <div class="input-box">
+        <input type="text" name="director" required><br>
+        <label for="director">Director</label>
+      </div>
+      <div class="input-box">
+        <input type="text" name="year" required><br>
+        <label for="year">Year</label>
+      </div>
+      <div class="input-box">
+        <input type="text" name="genero" required><br>
+        <label for="genero">Genero</label>
+      </div>
+      <div class="input-box">
+        <input type="text" name="sinopsis" required><br>
+        <label for="sinopsis">Sinopsis</label>
+      </div>
+      <button type="submit">Agregar</button>
+    </form>
+  </div>  
+  
+</body>
+</html>

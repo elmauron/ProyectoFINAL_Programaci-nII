@@ -19,6 +19,16 @@ header {
   justify-content: space-around;
 }
 
+.button {
+  color: red;
+  border-radius: 50px;
+  text-decoration: none;
+  background-color: transparent;
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, .5);
+  padding: 10px 20px;
+}
+
 .input-container {
   padding: 10px 0 10px 0;
   display: flex;

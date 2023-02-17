@@ -1,6 +1,6 @@
 import json
 from flask import Flask, jsonify, request, redirect, url_for, render_template
-from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login, welcome, editar_pelicula, buscar_pelicula, peliculasCRUD, editar_comentario
+from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login, welcome, editar_pelicula, buscar_pelicula, peliculasCRUD, editar_comentario, agregar_pelicula
 
 app = Flask(__name__)
 
@@ -50,6 +50,14 @@ def ruta_welcome(usuario_actual):
 @app.route("/pelicula/<usuario_actual>/<int:id>", methods=["GET", "POST"])
 def ruta_pelicula(usuario_actual, id):
     return peliculasCRUD(usuario_actual, id)
+
+@app.route("/welcome/<usuario_actual>/agregar", methods=["GET", "POST"])
+def ruta_agregar(usuario_actual):
+    return agregar_pelicula(usuario_actual)
+
+     
+
+    
 
 
 @app.route("/pelicula/<usuario_actual>/<int:id>/editar", methods=["GET", "POST", "PUT", "DELETE"])

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -13,14 +15,28 @@ body {
     background-size: cover;
 }
 
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+.button {
+    color: red;
+    border-radius: 50px;
+    text-decoration: none;
+    background-color: transparent;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, .5);
+    padding: 10px 20px;
+}
+
 .input-container {
-    width: 100%;
     padding: 10px 0 10px 0;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
-
+  
 .search-bar {
     width: 100%;
     max-width: 700px;
@@ -32,7 +48,7 @@ body {
     backdrop-filter: blur(15px);
     border: 2px solid rgba(255, 255, 255, .5);
 }
-
+  
 .search-bar input {
     background: transparent;
     flex: 1;
@@ -41,15 +57,19 @@ body {
     padding: 4px 20px;
     font-size: 20px;
     color: black !important;
-
+    
 }
-
+  
 .search-bar button {
     border: 0;
     background: none;
     cursor: pointer;
 }
-
+  
+.search-bar button span {
+    color: red;
+    font-size: 2em;
+}
 .search-bar button span {
     color: red;
     font-size: 2em;
