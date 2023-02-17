@@ -1,4 +1,4 @@
-import json
+import json, uuid
 from datetime import datetime
 from flask import Flask, jsonify, request, redirect, url_for, render_template
 from cargoJSONS import usuarios, peliculas
@@ -93,7 +93,7 @@ def cargar_comentario(usuario, comment, id_int):
 
     print(comment)
 
-    comment_info = {"ususario": usuario, "texto": comment,
+    comment_info = {"usuario": usuario, "texto": comment,
                     "hora": str(datetime.now()), "pelicula_id": id_int}
 
     peliculas_result = peliculas()
@@ -123,3 +123,35 @@ def peliculasCRUD(usuario_actual, id):
         print(comment)
         cargar_comentario(usuario_actual, comment, id_int)
         return redirect(url_for("ruta_pelicula", usuario_actual=usuario_actual, id=id))
+    
+# Funcion para agregar peliculas
+def agregar_pelicula(usuario_actual):
+    if request.method == "GET":
+        return render_template("agregar.html", usuario_actual=usuario_actual)
+    
+    if request.method == "POST":
+        titulo = request.form.get("titulo")
+        director = request.form.get("director")
+        year = request.form.get("year")
+        genero = request.form.get("genero")
+        sinopsis = request.form.get("sinopsis")
+
+        peliculas_result = peliculas()
+        nueva_pelicula = {
+            "id": len(peliculas_result["peliculas"]) + 1,
+            "titulo": titulo,
+            "director": director,
+            "year": year,
+            "genero": genero,
+            "sinopsis": sinopsis,
+            "imagen": "/static/img/signito.jpg",
+            "comentarios": []
+        }
+
+        peliculas_result["peliculas"].append(nueva_pelicula)
+        with open ("jsons/peliculas.json", "w") as file:
+            json.dump(peliculas_result, file)
+        
+        return redirect(url_for("ruta_welcome", usuario_actual=usuario_actual))
+     
+

@@ -1,6 +1,6 @@
 import json
 from flask import Flask, jsonify, request, redirect, url_for, render_template
-from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login, welcome, cargar_comentario, buscar_pelicula, peliculasCRUD
+from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login, welcome, cargar_comentario, buscar_pelicula, peliculasCRUD, agregar_pelicula
 
 app = Flask(__name__)
 
@@ -44,12 +44,19 @@ def login():
 # Ruta para bienvenida >> se pasan el parámetro de "usuario_actual" que es el usuario tomado desde LOGIN
 @app.route("/welcome/<usuario_actual>")
 def ruta_welcome(usuario_actual):
-    return welcome(usuario_actual), buscar_pelicula()
-
+    return welcome(usuario_actual)
 
 @app.route("/pelicula/<usuario_actual>/<int:id>", methods=["GET", "POST"])
 def ruta_pelicula(usuario_actual, id):
     return peliculasCRUD(usuario_actual, id)
+
+@app.route("/welcome/<usuario_actual>/agregar", methods=["GET", "POST"])
+def ruta_agregar(usuario_actual):
+    return agregar_pelicula(usuario_actual)
+
+     
+
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
