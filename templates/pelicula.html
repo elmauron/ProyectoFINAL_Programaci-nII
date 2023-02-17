@@ -13,24 +13,10 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-    <div class="row">
-        <div class="col-lg-3 img">
-            <img c src="{{ pelicula.imagen }}" alt="">
-            <p>Titulo: {{ pelicula.titulo }}</p>
-            <p>Director: {{ pelicula.director }}</p>
-            <p>Ano: {{ pelicula.year }}</p>
-            <p>Sinopsis: {{ pelicula.sinopsis }}</p>
-        </div>
-
-        <div class="contenido col-lg-3">
-            <form method="POST" action="{{ url_for('ruta_pelicula', usuario_actual=usuario_actual, id=pelicula.id) }}">
-                <label for="comment">Comentar:</label><br>
-                <textarea id="comentario" name="comentario" required></textarea><br>
-=======
     <header>
         <h1>{{ pelicula.titulo }}</h1>
-        <a href="{{ url_for('ruta_editar', usuario_actual=usuario_actual, id=pelicula.id) }}" class="button">Editar Películaa</a>
+        <a href="{{ url_for('ruta_editar', usuario_actual=usuario_actual, id=pelicula.id) }}" class="button">Editar
+            Películaa</a>
     </header>
     <div class="row">
         <div class="col-lg-4">
@@ -44,35 +30,24 @@
                 <p>Genero: {{ pelicula.genero }}</p>
             </div>
         </div>
-        
+
         <div class="contenido col-lg-6">
             <form method="POST" action="{{ url_for('ruta_pelicula', usuario_actual=usuario_actual, id=pelicula.id) }}">
                 <label for="comment">Add a Comment:</label><br>
                 <textarea id="comment" name="comentario" required></textarea><br>
->>>>>>> 7b8b793bc248d03026cd32254c14d13f1e430637
                 <button type="submit">Submit</button>
             </form>
 
             {% if pelicula.comentarios %}
-<<<<<<< HEAD
-            <h2>Comentarios:</h2>
-            <ul>
-                {% for comentario in pelicula.comentarios %}
-                <li>
-                    <strong>{{ comentario.usuario }}:</strong>
-                    {{ comentario.texto }}
-=======
             <ul>
                 {% for comentario in pelicula.comentarios %}
                 <li>
                     <p><span>{{ comentario.usuario }}: </span>{{ comentario.texto }}</p>
->>>>>>> 7b8b793bc248d03026cd32254c14d13f1e430637
                 </li>
                 {% endfor %}
             </ul>
             {% endif %}
 
-<<<<<<< HEAD
             <a href="{{ url_for('ruta_editar', usuario_actual=usuario_actual, id=pelicula.id) }}"
                 class="btn btn-primary">Editar Película</a>
 
@@ -80,11 +55,6 @@
 
     </div>
     </div>
-=======
-            
-
-        </div> 
->>>>>>> 7b8b793bc248d03026cd32254c14d13f1e430637
 </body>
 
 </html>
