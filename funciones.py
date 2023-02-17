@@ -1,4 +1,5 @@
 import json
+import uuid
 from datetime import datetime
 from flask import Flask, jsonify, request, redirect, url_for, render_template
 from cargoJSONS import usuarios, peliculas
@@ -25,7 +26,6 @@ def buscar_pelicula():
         if pelicula["director"].upper() == busqueda or pelicula["titulo"].upper() == busqueda:
             resultados.append(pelicula)
     return render_template("resultados.html", busqueda=busqueda, resultados=resultados)
-
 
 
 # Funcion para devolver la lista de usuarios con sus respectivos datos >> guarda los datos en "usuarios_result" y los imprime por consola.
@@ -93,8 +93,10 @@ def cargar_comentario(usuario, comment, id_int):
 
     print(comment)
 
-    comment_info = {"ususario": usuario, "texto": comment,
-                    "hora": str(datetime.now()), "pelicula_id": id_int}
+    comment_id = str(uuid.uuid4())  # genera un ID unico para cada comment
+
+    comment_info = {"usuario": usuario, "texto": comment,
+                    "hora": str(datetime.now()), "comentario_id": comment_id}
 
     peliculas_result = peliculas()
 
@@ -122,4 +124,51 @@ def peliculasCRUD(usuario_actual, id):
         comment = request.form.get("comentario")
         print(comment)
         cargar_comentario(usuario_actual, comment, id_int)
+        return redirect(url_for("ruta_pelicula", usuario_actual=usuario_actual, id=id))
+
+
+def editar_pelicula(usuario_actual, id):
+
+    if request.method == "GET":
+        peliculas_result = peliculas()
+        for pelicula in peliculas_result["peliculas"]:
+            if pelicula["id"] == id:
+                return render_template("editar.html", pelicula=pelicula, usuario_actual=usuario_actual)
+
+    if request.method == "POST":
+        # Carga el archivo JSON
+        with open("jsons/peliculas.json", "r") as json_file:
+            data = json.load(json_file)
+
+        # Actualiza los datos necesarios
+        for pelicula in data["peliculas"]:
+            if pelicula["id"] == id:
+                pelicula["titulo"] = request.form.get("titulo")
+                pelicula["director"] = request.form.get("director")
+                pelicula["year"] = request.form.get("year")
+                pelicula["sinopsis"] = request.form.get("sinopsis")
+                pelicula["imagen"] = request.form.get("imagen")
+
+        # Guarda los cambios en el archivo JSON
+        with open("jsons/peliculas.json", "w") as json_file:
+            json.dump(data, json_file)
+
+        return redirect(url_for("ruta_pelicula", usuario_actual=usuario_actual, id=id))
+
+
+def editar_comentario(usuario_actual, id):
+
+    if request.method == "POST":
+        # Carga el archivo JSON
+        with open("jsons/peliculas.json", "r") as json_file:
+            data = json.load(json_file)
+
+        for pelicula in data["peliculas"]:
+            for comentario in pelicula["comentarios"]:  # est
+                if comentario["comentario_id"] == request.form.get("comentario_id"):
+                    comentario["texto"] = request.form.get("comentario_texto")
+
+        with open("jsons/peliculas.json", "w") as json_file:
+            json.dump(data, json_file)
+
         return redirect(url_for("ruta_pelicula", usuario_actual=usuario_actual, id=id))

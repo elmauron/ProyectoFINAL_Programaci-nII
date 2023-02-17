@@ -16,6 +16,7 @@
     <div class="row">
         <div class="col-lg-3 img">
             <img c src="{{ pelicula.imagen }}" alt="">
+            <p>Titulo: {{ pelicula.titulo }}</p>
             <p>Director: {{ pelicula.director }}</p>
             <p>Ano: {{ pelicula.year }}</p>
             <p>Sinopsis: {{ pelicula.sinopsis }}</p>
@@ -23,7 +24,7 @@
 
         <div class="contenido col-lg-3">
             <form method="POST" action="{{ url_for('ruta_pelicula', usuario_actual=usuario_actual, id=pelicula.id) }}">
-                <label for="comment">Add a Comment:</label><br>
+                <label for="comment">Comentar:</label><br>
                 <textarea id="comentario" name="comentario" required></textarea><br>
                 <button type="submit">Submit</button>
             </form>
@@ -40,6 +41,8 @@
             </ul>
             {% endif %}
 
+            <a href="{{ url_for('ruta_editar', usuario_actual=usuario_actual, id=pelicula.id) }}"
+                class="btn btn-primary">Editar Película</a>
 
         </div>
 

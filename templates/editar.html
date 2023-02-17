@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Editar Película</title>
+</head>
+
+<body>
+    <h1>Editar Película</h1>
+    <img src="{{ pelicula.imagen }}" alt="{{ pelicula.titulo }}" width="200" height="300">
+    <p>{{ pelicula.sinopsis }}</p>
+    <form action="{{ url_for('ruta_editar', usuario_actual=usuario_actual, id=pelicula.id) }}" method="POST">
+
+        <label for="titulo">Título:</label>
+        <input type="text" name="titulo" value="{{ pelicula.titulo }}" required><br><br>
+
+        <label for="director">Director:</label>
+        <input type="text" name="director" value="{{ pelicula.director }}" required><br><br>
+
+        <label for="anio">Año:</label>
+        <input type="number" name="year" value="{{ pelicula.anio }}" required><br><br>
+
+        <label for="sinopsis">Sinopsis:</label>
+        <textarea name="sinopsis" rows="10" cols="50">{{ pelicula.sinopsis }}</textarea><br><br>
+
+        <label for="imagen">URL del póster:</label>
+        <input type="text" name="imagen" value="{{ pelicula.imagen }}" required><br><br>
+
+        <input type="submit" value="Guardar Cambios">
+
+    </form>
+
+    <h2>Comentarios</h2>
+    {% for comentario in pelicula.comentarios %}
+    <div>
+        <p><strong>{{ comentario.usuario }}:</strong> {{ comentario.texto }}</p>
+        {% if comentario.usuario == usuario_actual %}
+        <form name=seccion_comentario
+            action="{{ url_for('ruta_editar_comentario', usuario_actual=usuario_actual, id=pelicula.id) }}"
+            method="POST">
+            <input type="hidden" name="comentario_id" value="{{ comentario.comentario_id }}">
+            <label for="comentario_texto">Editar comentario:</label>
+            <textarea name="comentario_texto" rows="3" cols="50">{{ comentario.texto }}</textarea>
+            <br>
+            <input type="submit" value="Guardar Cambios">
+        </form>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+</body>
+
+</html>

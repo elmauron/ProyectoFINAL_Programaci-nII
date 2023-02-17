@@ -1,1 +1,129 @@
-{"peliculas": [{"id": 1, "titulo": "El Caballero de la Noche", "director": "Christopher Nolan", "year": 2008, "genero": 3, "sinopsis": "El Caballero de la Noche asciende para proteger Gotham City de su peor enemigo, el Joker.", "imagen": "/static/img/batman-poster.jpg", "comentarios": [{"ususario": "MauroSagasti", "texto": "soy patrick bateman", "hora": "2023-02-16 20:01:44.918934", "pelicula_id": 1}]}, {"id": 2, "titulo": "El origen", "director": "Christopher Nolan", "year": 2010, "genero": "idGenero", "sinopsis": "Un ladr\u00c3\u00b3n especializado en la extracci\u00c3\u00b3n se ofrece a penetrar en los sue\u00c3\u00b1os de un hombre para implantar una idea en su subconsciente.", "imagen": "/static/img/origen-poster.jpg", "comentarios": [{"ususario": "MauroSagasti", "texto": "ssss", "hora": "2023-02-16 20:03:26.341704", "pelicula_id": 2}, {"ususario": "MauroSagasti", "texto": "se muere la esposa", "hora": "2023-02-16 20:04:10.242779", "pelicula_id": 2}]}, {"id": 3, "titulo": "La Lista de Schindler", "director": "Steven Spielberg", "year": 1993, "genero": "idGenero", "sinopsis": "Durante la Segunda Guerra Mundial, un empresario alem\u00c3\u00a1n protege a m\u00c3\u00a1s de mil jud\u00c3\u00ados de ser perseguidos y asesinados por los nazis.", "imagen": "/static/img/schindler-poster.jpg", "comentarios": [{"ususario": "MauroSagasti", "texto": null, "hora": "2023-02-16 20:13:51.923320", "pelicula_id": 3}, {"ususario": "MauroSagasti", "texto": null, "hora": "2023-02-16 20:14:02.102217", "pelicula_id": 3}, {"ususario": "MauroSagasti", "texto": null, "hora": "2023-02-16 20:14:09.783111", "pelicula_id": 3}, {"ususario": "MauroSagasti", "texto": "a ver", "hora": "2023-02-16 20:14:43.851059", "pelicula_id": 3}, {"ususario": "MauroSagasti", "texto": "sss", "hora": "2023-02-16 20:16:26.339264", "pelicula_id": 3}, {"ususario": "MauroSagasti", "texto": "asas", "hora": "2023-02-16 20:16:28.859354", "pelicula_id": 3}]}, {"id": 4, "titulo": "Parque Jurasico", "director": "Steven Spielberg", "year": 1993, "genero": "idGenero", "sinopsis": "Cuando un grupo de visitantes llega a un parque tem\u00c3\u00a1tico donde se clonan dinosaurios, un fallo t\u00c3\u00a9cnico provoca que se suelten los monstruos y comience la lucha por sobrevivir.", "imagen": "/static/img/jurasic-poster.jpg", "comentarios": []}, {"id": 5, "titulo": "2001: Odisea del Espacio", "director": "Stanley Kubrick", "year": 1968, "genero": "idGenero", "sinopsis": "Una odisea a trav\u00c3\u00a9s del tiempo y del espacio que sigue a un grupo de astronautas y a un superordenador llamado HAL 9000 en su misi\u00c3\u00b3n a J\u00c3\u00bapiter.", "imagen": "/static/img/odisea-poster.jpg", "comentarios": []}, {"id": 6, "titulo": "La Naranja Mecanica", "director": "Stanley Kubrick", "year": 1971, "genero": "idGenero", "sinopsis": "Un joven delincuente lidera un grupo de delinc", "imagen": "/static/img/naranja-poster.jpg", "comentarios": []}, {"id": 7, "titulo": "Dunquerque", "director": "Christopher Nolan", "year": 2017, "genero": "idGenero", "sinopsis": "Durante la Segunda Guerra Mundial, los soldados brit\u00c3\u00a1nicos y aliados est\u00c3\u00a1n rodeados por el enemigo y luchan por sobrevivir en las playas de Dunkirk mientras esperan su evacuaci\u00c3\u00b3n.", "imagen": "/static/img/dunkirk-poster.jpg", "comentarios": []}, {"id": 8, "titulo": "Munich", "director": "Steven Spielberg", "year": 2005, "genero": "idGenero", "sinopsis": "Una equipo de cinco hombres es enviado por el gobierno israel\u00c3\u00ad para vengar la muerte de atletas israel\u00c3\u00ades en los Juegos Ol\u00c3\u00admpicos de Munich de 1972.", "imagen": "/static/img/munich-poster.jpg", "comentarios": []}, {"id": 9, "titulo": "Ojos bien cerrados", "director": "Stanley Kubrick", "year": 1999, "genero": "idGenero", "sinopsis": "Despu\u00c3\u00a9s de la muerte de una amiga, un m\u00c3\u00a9dico se sumerge en un mundo secreto de org\u00c3\u00adas y rituales oscuros en Nueva York.", "imagen": "/static/img/ojos-poster.jpg", "comentarios": []}, {"id": 10, "titulo": "El Resplandor", "director": "Stanley Kubrick", "year": 1980, "genero": "idGenero", "sinopsis": "Un escritor acepta un trabajo como guardi\u00c3\u00a1n de un hotel de monta\u00c3\u00b1a durante el invierno y se encuentra luchando contra fuerzas sobrenaturales malignas.", "imagen": "/static/img/resplandor-poster.jpg", "comentarios": []}]}
+{
+    "peliculas": [
+        {
+            "id": 1,
+            "titulo": "El Caballero de la Noche",
+            "director": "Christopher Nolan",
+            "year": "1",
+            "genero": 3,
+            "sinopsis": "El Caballero de la Noche asciende para proteger Gotham City de su peor enemigo, el Joker.",
+            "imagen": "/static/img/batman-poster.jpg",
+            "comentarios": [
+                {
+                    "usuario": "MauroSagasti",
+                    "texto": "cortito y al pie\r\n",
+                    "hora": "2023-02-17 10:39:46.468534",
+                    "comentario_id": "0cbad42c-9d63-41c7-a011-6f6e67157c65"
+                },
+                {
+                    "usuario": "MauroSagasti",
+                    "texto": "a tocar hasta que sangren las manos",
+                    "hora": "2023-02-17 13:47:39.663617",
+                    "comentario_id": "925b0101-b002-4f49-8d4f-d4023547b1c2"
+                },
+                {
+                    "usuario": "MaxiOzonas",
+                    "texto": "aaaaaa",
+                    "hora": "2023-02-17 13:48:43.791745",
+                    "comentario_id": "1c5c3cc7-6706-4626-ba6e-b5d55c201724"
+                },
+                {
+                    "usuario": "MaxiOzonas",
+                    "texto": "cacona",
+                    "hora": "2023-02-17 13:48:48.074927",
+                    "comentario_id": "53cca661-7538-425e-b896-432be042d8e3"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "titulo": "El origen",
+            "director": "Christopher Nolan",
+            "year": "1999",
+            "genero": "idGenero",
+            "sinopsis": "a nisman lo matan en su banio",
+            "imagen": "/static/img/origen-poster.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 3,
+            "titulo": "La Lista de Schindler",
+            "director": "Steven SpielbergA",
+            "year": "69",
+            "genero": "idGenero",
+            "sinopsis": "Durante la Segunda Guerra Mundial, un empresario alem\u00c3\u00a1n protege a m\u00c3\u00a1s de mil jud\u00c3\u00ados de ser perseguidos y asesinados por los nazis.",
+            "imagen": "/static/img/schindler-poster.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 4,
+            "titulo": "Parque Jurasico",
+            "director": "Steven Spielberg",
+            "year": 1993,
+            "genero": "idGenero",
+            "sinopsis": "Cuando un grupo de visitantes llega a un parque tem\u00c3\u00a1tico donde se clonan dinosaurios, un fallo t\u00c3\u00a9cnico provoca que se suelten los monstruos y comience la lucha por sobrevivir.",
+            "imagen": "/static/img/jurasic-poster.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 5,
+            "titulo": "2001: Odisea del Espacio",
+            "director": "Stanley Kubrick",
+            "year": 1968,
+            "genero": "idGenero",
+            "sinopsis": "Una odisea a trav\u00c3\u00a9s del tiempo y del espacio que sigue a un grupo de astronautas y a un superordenador llamado HAL 9000 en su misi\u00c3\u00b3n a J\u00c3\u00bapiter.",
+            "imagen": "/static/img/odisea-poster.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 6,
+            "titulo": "La Naranja Mecanica",
+            "director": "Stanley Kubrick",
+            "year": 1971,
+            "genero": "idGenero",
+            "sinopsis": "Un joven delincuente lidera un grupo de delinc",
+            "imagen": "/static/img/naranja-poster.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 7,
+            "titulo": "Dunquerque",
+            "director": "Christopher Nolan",
+            "year": 2017,
+            "genero": "idGenero",
+            "sinopsis": "Durante la Segunda Guerra Mundial, los soldados brit\u00c3\u00a1nicos y aliados est\u00c3\u00a1n rodeados por el enemigo y luchan por sobrevivir en las playas de Dunkirk mientras esperan su evacuaci\u00c3\u00b3n.",
+            "imagen": "/static/img/dunkirk-poster.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 8,
+            "titulo": "Munich",
+            "director": "Steven Spielberg",
+            "year": 2005,
+            "genero": "idGenero",
+            "sinopsis": "Una equipo de cinco hombres es enviado por el gobierno israel\u00c3\u00ad para vengar la muerte de atletas israel\u00c3\u00ades en los Juegos Ol\u00c3\u00admpicos de Munich de 1972.",
+            "imagen": "/static/img/munich-poster.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 9,
+            "titulo": "Ojos bien cerrados",
+            "director": "Stanley Kubrick",
+            "year": 1999,
+            "genero": "idGenero",
+            "sinopsis": "Despu\u00c3\u00a9s de la muerte de una amiga, un m\u00c3\u00a9dico se sumerge en un mundo secreto de org\u00c3\u00adas y rituales oscuros en Nueva York.",
+            "imagen": "/static/img/ojos-poster.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 10,
+            "titulo": "El Resplandor",
+            "director": "Stanley Kubrick",
+            "year": 1980,
+            "genero": "idGenero",
+            "sinopsis": "Un escritor acepta un trabajo como guardi\u00c3\u00a1n de un hotel de monta\u00c3\u00b1a durante el invierno y se encuentra luchando contra fuerzas sobrenaturales malignas.",
+            "imagen": "/static/img/resplandor-poster.jpg",
+            "comentarios": []
+        }
+    ]
+}
