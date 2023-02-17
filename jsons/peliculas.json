@@ -8,7 +8,14 @@
             "genero": 3,
             "sinopsis": "El Caballero de la Noche asciende para proteger Gotham City de su peor enemigo, el Joker.",
             "imagen": "/static/img/batman-poster.jpg",
-            "comentarios": []
+            "comentarios": [
+                {
+                    "usuario": "MaxiOzonas",
+                    "texto": "asd",
+                    "hora": "2023-02-17 14:51:52.494159",
+                    "comentario_id": "40837537-221f-4861-9a2e-9e2d18580b11"
+                }
+            ]
         },
         {
             "id": 2,
