@@ -55,11 +55,6 @@ def ruta_pelicula(usuario_actual, id):
 def ruta_agregar(usuario_actual):
     return agregar_pelicula(usuario_actual)
 
-     
-
-    
-
-
 @app.route("/pelicula/<usuario_actual>/<int:id>/editar", methods=["GET", "POST", "PUT", "DELETE"])
 def ruta_editar(usuario_actual, id):
     return editar_pelicula(usuario_actual, id)
