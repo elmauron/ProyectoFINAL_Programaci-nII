@@ -8,32 +8,7 @@
             "genero": 3,
             "sinopsis": "El Caballero de la Noche asciende para proteger Gotham City de su peor enemigo, el Joker.",
             "imagen": "/static/img/batman-poster.jpg",
-            "comentarios": [
-                {
-                    "usuario": "MauroSagasti",
-                    "texto": "cortito y al pie\r\n",
-                    "hora": "2023-02-17 10:39:46.468534",
-                    "comentario_id": "0cbad42c-9d63-41c7-a011-6f6e67157c65"
-                },
-                {
-                    "usuario": "MauroSagasti",
-                    "texto": "a tocar hasta que sangren las manos",
-                    "hora": "2023-02-17 13:47:39.663617",
-                    "comentario_id": "925b0101-b002-4f49-8d4f-d4023547b1c2"
-                },
-                {
-                    "usuario": "MaxiOzonas",
-                    "texto": "aaaaaa",
-                    "hora": "2023-02-17 13:48:43.791745",
-                    "comentario_id": "1c5c3cc7-6706-4626-ba6e-b5d55c201724"
-                },
-                {
-                    "usuario": "MaxiOzonas",
-                    "texto": "cacona",
-                    "hora": "2023-02-17 13:48:48.074927",
-                    "comentario_id": "53cca661-7538-425e-b896-432be042d8e3"
-                }
-            ]
+            "comentarios": []
         },
         {
             "id": 2,

@@ -46,20 +46,22 @@ def login():
 def ruta_welcome(usuario_actual):
     return welcome(usuario_actual)
 
-
+#Ruta para determinada pelicula
 @app.route("/pelicula/<usuario_actual>/<int:id>", methods=["GET", "POST"])
 def ruta_pelicula(usuario_actual, id):
     return peliculasCRUD(usuario_actual, id)
 
+#Ruta para agregar peliculas
 @app.route("/welcome/<usuario_actual>/agregar", methods=["GET", "POST"])
 def ruta_agregar(usuario_actual):
     return agregar_pelicula(usuario_actual)
 
+#Ruta para editar peliculas
 @app.route("/pelicula/<usuario_actual>/<int:id>/editar", methods=["GET", "POST", "PUT", "DELETE"])
 def ruta_editar(usuario_actual, id):
     return editar_pelicula(usuario_actual, id)
 
-
+#Ruta para editar los comentarios de las peliculas
 @app.route("/comentario/<usuario_actual>/<int:id>/editar", methods=["GET", "POST", "PUT", "DELETE"])
 def ruta_editar_comentario(usuario_actual, id):
     return editar_comentario(usuario_actual, id)

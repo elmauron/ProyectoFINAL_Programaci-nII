@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/pelicula.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>{{ pelicula.titulo }}</h1>
+        <a href="{{ url_for('ruta_editar', usuario_actual=usuario_actual, id=pelicula.id) }}" class="button">Editar Películaa</a>
+    </header>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <img src="{{ pelicula.imagen }}" class="card-img-top" alt="">
+            </div>
+            <div class="card-body">
+                <p>Director: {{ pelicula.director }}</p>
+                <p>Ano: {{ pelicula.year }}</p>
+                <p>Sinopsis: {{ pelicula.sinopsis }}</p>
+                <p>Genero: {{ pelicula.genero }}</p>
+            </div>
+        </div>
+        
+        <div class="contenido col-lg-6">
+            <form method="POST" action="{{ url_for('ruta_pelicula', usuario_actual=usuario_actual, id=pelicula.id) }}">
+                <label for="comment">Add a Comment:</label><br>
+                <textarea id="comment" name="comentario" required></textarea><br>
+                <button type="submit">Submit</button>
+            </form>
+
+            {% if pelicula.comentarios %}
+            <ul>
+                {% for comentario in pelicula.comentarios %}
+                <li>
+                    <p><span>{{ comentario.usuario }}: </span>{{ comentario.texto }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            
+
+        </div> 
+</body>
+
+</html>
