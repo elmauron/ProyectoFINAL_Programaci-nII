@@ -2,7 +2,7 @@ import json
 import uuid
 from datetime import datetime
 from flask import Flask, jsonify, request, redirect, url_for, render_template
-from cargoJSONS import usuarios, peliculas
+from cargoJSONS import usuarios, peliculas, generos
 
 
 # Funcion para mostrar peliculas en pantalla >> itera sobre la variable proveniente del archivo cargoJSONS.py
@@ -48,15 +48,26 @@ def devolver_usuario_por_id(id):
 
 # Funcion para devolver la lista de peliculas con sus respectivos datos >> guarda los datos en "peliculas_result" y los imprime por consola.
 def devolver_peliculas():
-    peliculas_result = peliculas()
-    print(type(peliculas_result))
-    return (peliculas_result)
 
+    if request.method == "GET":
+        peliculas_result = peliculas()
+        print(type(peliculas_result))
+        return (peliculas_result)
+
+    if request.method == "POST":
+        peliculas_result = peliculas()
+        return peliculas_result
+
+    if request.method == "PUT":
+        peliculas_result = peliculas()
+        return peliculas_result
 
 # Funcion para verificar datos de LOGIN >> Muestra el html y en caso de enviar
 # el formulario, revisa y compara que sean correctos con un ciclo "for".
 # Si los datos son correctos, redirecciona al usuario hacia ruta "/welcome".
 # Si los datos son incorrectos, muestra el html bad-login para que intente nuevamente.
+
+
 def check_login():
     if request.method == "GET":
         return render_template("login.html")
@@ -89,13 +100,13 @@ def welcome(usuario_actual):
 # Despues se agrega el nuevo comentario a la lista de comentarios.
 
 
-def cargar_comentario(usuario, comment, id_int):
+def cargar_comentario(usuario_actual, comment, id_int):
 
     print(comment)
 
     comment_id = str(uuid.uuid4())  # genera un ID unico para cada comment
 
-    comment_info = {"usuario": usuario, "texto": comment,
+    comment_info = {"usuario": usuario_actual, "texto": comment,
                     "hora": str(datetime.now()), "comentario_id": comment_id}
 
     peliculas_result = peliculas()
@@ -125,7 +136,19 @@ def peliculasCRUD(usuario_actual, id):
         print(comment)
         cargar_comentario(usuario_actual, comment, id_int)
         return redirect(url_for("ruta_pelicula", usuario_actual=usuario_actual, id=id))
-    
+
+    if request.method == "DELETE":
+        peliculas_result = peliculas()
+        for pelicula in peliculas_result["peliculas"]:
+            if pelicula["id"] == id:
+                # Elimina la pelicla de la lista
+                peliculas_result["peliculas"].remove(pelicula)
+                # Escribe los datos caargados
+                with open("peliculas.json", "w") as f:
+                    json.dump(peliculas_result, f)
+                return "Pelicula borrada."
+        # Si no encuentra la pelicula devuelve error 404
+        return "Movie not found", 404
 
 
 def editar_pelicula(usuario_actual, id):
@@ -175,10 +198,12 @@ def editar_comentario(usuario_actual, id):
         return redirect(url_for("ruta_pelicula", usuario_actual=usuario_actual, id=id))
 
 # Funcion para agregar peliculas
+
+
 def agregar_pelicula(usuario_actual):
     if request.method == "GET":
         return render_template("agregar.html", usuario_actual=usuario_actual)
-    
+
     if request.method == "POST":
         titulo = request.form.get("titulo")
         director = request.form.get("director")
@@ -199,9 +224,48 @@ def agregar_pelicula(usuario_actual):
         }
 
         peliculas_result["peliculas"].append(nueva_pelicula)
-        with open ("jsons/peliculas.json", "w") as file:
+        with open("jsons/peliculas.json", "w") as file:
             json.dump(peliculas_result, file)
-        
-        return redirect(url_for("ruta_welcome", usuario_actual=usuario_actual))
-     
 
+        return redirect(url_for("ruta_welcome", usuario_actual=usuario_actual))
+
+
+def devolver_directores():
+    if request.method == "GET":
+        peliculas_result = peliculas()
+        directores = []
+        for pelicula in peliculas_result["peliculas"]:
+            directores.append(pelicula["director"])
+        return directores
+
+
+def devolver_generos():
+    if request.method == "GET":
+        generos_result = generos()
+        generos_nombres = []
+        for genero in generos_result["generos"]:
+            generos_nombres.append(genero["nombre"])
+        return generos_nombres
+
+
+def devolver_pelicula_por_director(director):
+    if request.method == "GET":
+        peliculas_result = peliculas()
+        titulos = []
+
+        for pelicula in peliculas_result["peliculas"]:
+            if pelicula["director"] == director:
+                titulos.append(pelicula["titulo"])
+        return titulos
+
+
+def devolver_pelicula_con_imagen():
+    if request.method == "GET":
+
+        peliculas_result = peliculas()
+        peliculas_con_imagen = []
+
+        for pelicula in peliculas_result["peliculas"]:
+            if pelicula["imagen"]:
+                peliculas_con_imagen.append(pelicula["titulo"])
+        return peliculas_con_imagen

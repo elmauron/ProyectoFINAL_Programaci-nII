@@ -1,6 +1,6 @@
 import json
 from flask import Flask, jsonify, request, redirect, url_for, render_template
-from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login, welcome, editar_pelicula, buscar_pelicula, peliculasCRUD, editar_comentario, agregar_pelicula
+from funciones import home, devolver_usuarios, devolver_usuario_por_id, devolver_peliculas, check_login, welcome, devolver_pelicula_con_imagen, editar_pelicula, buscar_pelicula, devolver_pelicula_por_director, devolver_generos, peliculasCRUD, devolver_directores, editar_comentario, agregar_pelicula
 
 app = Flask(__name__)
 
@@ -29,13 +29,34 @@ def ruta_usuario_ID():
 
 
 #  método GET peliculas
-@app.route("/peliculas")
+@app.route("/peliculas", methods=["GET", "POST", "PUT", "DELETE"])
 def ruta_peliculas():
     return devolver_peliculas()
 
 
+@app.route("/directores", methods=["GET"])
+def ruta_directores():
+    return devolver_directores()
+
+
+@app.route("/generos", methods=["GET"])
+def ruta_generos():
+    return devolver_generos()
+
+
+@app.route("/pelicula/<director>", methods=["GET"])
+def ruta_pelicula_por_director(director):
+    return devolver_pelicula_por_director(director)
+
+
+@app.route("/pelicula/con_imagen", methods=["GET"])
+def ruta_pelicula_con_imagen():
+    return devolver_pelicula_con_imagen()
+
 # Endpoint de LOGIN - Ruta que va a funciones.py, si el metodo es get nos devuelve un html de login, si el metodo es post nos
 # checkea que los datos son validos y a partir de eso nos redirecciona a bad-login o welcome Endpoint
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     return check_login()
@@ -46,22 +67,30 @@ def login():
 def ruta_welcome(usuario_actual):
     return welcome(usuario_actual)
 
-#Ruta para determinada pelicula
-@app.route("/pelicula/<usuario_actual>/<int:id>", methods=["GET", "POST"])
+# Ruta para determinada pelicula
+
+
+@app.route("/pelicula/<usuario_actual>/<int:id>", methods=["GET", "POST", "DELETE"])
 def ruta_pelicula(usuario_actual, id):
     return peliculasCRUD(usuario_actual, id)
 
-#Ruta para agregar peliculas
+# Ruta para agregar peliculas
+
+
 @app.route("/welcome/<usuario_actual>/agregar", methods=["GET", "POST"])
 def ruta_agregar(usuario_actual):
     return agregar_pelicula(usuario_actual)
 
-#Ruta para editar peliculas
+# Ruta para editar peliculas
+
+
 @app.route("/pelicula/<usuario_actual>/<int:id>/editar", methods=["GET", "POST", "PUT", "DELETE"])
 def ruta_editar(usuario_actual, id):
     return editar_pelicula(usuario_actual, id)
 
-#Ruta para editar los comentarios de las peliculas
+# Ruta para editar los comentarios de las peliculas
+
+
 @app.route("/comentario/<usuario_actual>/<int:id>/editar", methods=["GET", "POST", "PUT", "DELETE"])
 def ruta_editar_comentario(usuario_actual, id):
     return editar_comentario(usuario_actual, id)

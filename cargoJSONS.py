@@ -19,3 +19,9 @@ def peliculas():
     with open("jsons/peliculas.json", "r") as file:
         peliculas = json.load(file)
     return peliculas
+
+
+def generos():
+    with open("jsons/generos.json", "r") as file:
+        generos = json.load(file)
+    return generos
