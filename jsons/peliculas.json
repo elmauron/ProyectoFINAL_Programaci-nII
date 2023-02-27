@@ -69,17 +69,37 @@
             "genero": "idGenero",
             "sinopsis": "Cuando un grupo de visitantes llega a un parque tem\u00c3\u00a1tico donde se clonan dinosaurios, un fallo t\u00c3\u00a9cnico provoca que se suelten los monstruos y comience la lucha por sobrevivir.",
             "imagen": "/static/img/jurasic-poster.jpg",
-            "comentarios": []
+            "comentarios": [
+                {
+                    "usuario": "MauroSagasti",
+                    "texto": "una pija",
+                    "hora": "2023-02-18 21:03:37.796709",
+                    "comentario_id": "79714a51-e1bd-496f-a99a-7e4a7f0ccb4d"
+                }
+            ]
         },
         {
             "id": 5,
-            "titulo": "2001: Odisea del Espacio",
+            "titulo": "2023: Odisea del Espacio",
             "director": "Stanley Kubrick",
-            "year": 1968,
+            "year": "1",
             "genero": "idGenero",
             "sinopsis": "Una odisea a trav\u00c3\u00a9s del tiempo y del espacio que sigue a un grupo de astronautas y a un superordenador llamado HAL 9000 en su misi\u00c3\u00b3n a J\u00c3\u00bapiter.",
             "imagen": "/static/img/odisea-poster.jpg",
-            "comentarios": []
+            "comentarios": [
+                {
+                    "usuario": "MauroSagasti",
+                    "texto": "chau",
+                    "hora": "2023-02-22 22:08:59.890613",
+                    "comentario_id": "8a55938b-3a50-451f-bfcb-3ab27a3c7f36"
+                },
+                {
+                    "usuario": "MaxiOzonas",
+                    "texto": "ta mal",
+                    "hora": "2023-02-22 22:14:59.971186",
+                    "comentario_id": "a99e05ab-26c7-425c-8d5a-b2f4174f5de1"
+                }
+            ]
         },
         {
             "id": 6,
@@ -166,11 +186,54 @@
         {
             "id": 11,
             "titulo": "Attack on TItan",
-            "director": "aa",
+            "director": "ysayame",
             "year": "2023",
             "genero": "macho",
             "sinopsis": "genocidio",
             "imagen": "/static/img/signito.jpg",
+            "comentarios": [
+                {
+                    "usuario": "MauroSagasti",
+                    "texto": "que pelicula de mierda",
+                    "hora": "2023-02-18 00:04:23.384876",
+                    "comentario_id": "32e9fb5f-cc01-4221-9b31-609df069432e"
+                },
+                {
+                    "usuario": "MauroSagasti",
+                    "texto": "a nisman lo mataron en su ba\u00f1o\r\n",
+                    "hora": "2023-02-18 00:04:31.042708",
+                    "comentario_id": "db21cd54-9bb1-4ad7-a65f-d315a506611f"
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "titulo": "shrek",
+            "director": "burro",
+            "year": "2000",
+            "genero": "macho",
+            "sinopsis": "aaa",
+            "imagen": "",
+            "comentarios": []
+        },
+        {
+            "id": 13,
+            "titulo": "rapido y furioso 10,3",
+            "director": "pepe",
+            "year": "aaaa",
+            "genero": "macho",
+            "sinopsis": "aaa",
+            "imagen": "",
+            "comentarios": []
+        },
+        {
+            "id": 14,
+            "titulo": "rapido y furioso 10,3",
+            "director": "pepe",
+            "year": "aaaa",
+            "genero": "macho",
+            "sinopsis": "aaa",
+            "imagen": "",
             "comentarios": []
         }
     ]
