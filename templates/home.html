@@ -24,7 +24,7 @@
     </div>
     <a href="/login" class="button">Iniciar sesión</a>
   </header>
-  
+
 
   <div class="container">
     <div class="row">
@@ -43,8 +43,32 @@
     </div>
   </div>
 
+  <div class="pagination justify-content-center">
+    {% if pagination.pages|length > 1 %}
+    <ul class="pagination">
+      {% if pagination.has_prev %}
+      <li class="page-item"><a class="page-link" href="{{ url_for('ruta_home', p=pagination.page - 1) }}">&laquo;</a>
+      </li>
+      {% endif %}
+      {% for page_num in pagination.iter_pages %}
+      {% if page_num %}
+      {% if page_num == pagination.page %}
+      <li class="page-item active"><a class="page-link" href="#">{{ page_num }}</a></li>
+      {% else %}
+      <li class="page-item"><a class="page-link" href="/{{ page_num }}">{{ page_num }}</a></li>
+      {% endif %}
+      {% else %}
+      <li class="disabled page-item"><a class="page-link" href="#">&hellip;</a></li>
+      {% endif %}
+      {% endfor %}
+      {% if pagination.has_next %}
+      <li class="page-item"><a class="page-link" href="{{ url_for('ruta_home', p=pagination.page + 1) }}">&raquo;</a>
+      </li>
 
-
+      {% endif %}
+    </ul>
+    {% endif %}
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"

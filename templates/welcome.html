@@ -46,6 +46,34 @@
         </div>
     </div>
 
+    <div class="pagination justify-content-center">
+        {% if pagination.pages|length > 1 %}
+        <ul class="pagination">
+            {% if pagination.has_prev %}
+            <li class="page-item"><a class="page-link"
+                    href="{{ url_for('ruta_welcome', usuario_actual=usuario_actual, p=pagination.page - 1) }}">&laquo;</a>
+            </li>
+            {% endif %}
+            {% for page_num in pagination.iter_pages %}
+            {% if page_num %}
+            {% if page_num == pagination.page %}
+            <li class="page-item active"><a class="page-link" href="#">{{ page_num }}</a></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="/{{ page_num }}">{{ page_num }}</a></li>
+            {% endif %}
+            {% else %}
+            <li class="disabled page-item"><a class="page-link" href="#">&hellip;</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if pagination.has_next %}
+            <li class="page-item"><a class="page-link"
+                    href="{{ url_for('ruta_welcome', usuario_actual=usuario_actual, p=pagination.page + 1) }}">&raquo;</a>
+            </li>
+
+            {% endif %}
+        </ul>
+        {% endif %}
+    </div>
 
 
 

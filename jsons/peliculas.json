@@ -186,54 +186,121 @@
         {
             "id": 11,
             "titulo": "Attack on TItan",
-            "director": "ysayame",
-            "year": "2023",
-            "genero": "macho",
+            "director": "ysayama",
+            "year": "2012",
+            "genero": "Accion",
             "sinopsis": "genocidio",
             "imagen": "/static/img/signito.jpg",
-            "comentarios": [
-                {
-                    "usuario": "MauroSagasti",
-                    "texto": "que pelicula de mierda",
-                    "hora": "2023-02-18 00:04:23.384876",
-                    "comentario_id": "32e9fb5f-cc01-4221-9b31-609df069432e"
-                },
-                {
-                    "usuario": "MauroSagasti",
-                    "texto": "a nisman lo mataron en su ba\u00f1o\r\n",
-                    "hora": "2023-02-18 00:04:31.042708",
-                    "comentario_id": "db21cd54-9bb1-4ad7-a65f-d315a506611f"
-                }
-            ]
+            "comentarios": []
         },
         {
             "id": 12,
-            "titulo": "shrek",
-            "director": "burro",
-            "year": "2000",
-            "genero": "macho",
-            "sinopsis": "aaa",
-            "imagen": "",
+            "titulo": "gigante de hierro",
+            "director": "Steven Spielberg",
+            "year": "1998",
+            "genero": "Drama",
+            "sinopsis": "gigante bueno extraterrestre viaja a la tierra",
+            "imagen": "/static/img/signito.jpg",
             "comentarios": []
         },
         {
             "id": 13,
-            "titulo": "rapido y furioso 10,3",
-            "director": "pepe",
-            "year": "aaaa",
-            "genero": "macho",
-            "sinopsis": "aaa",
-            "imagen": "",
+            "titulo": "shrek",
+            "director": "Un genio",
+            "year": "2000",
+            "genero": "Comedia",
+            "sinopsis": "un ogro que es un capo",
+            "imagen": "/static/img/signito.jpg",
             "comentarios": []
         },
         {
             "id": 14,
-            "titulo": "rapido y furioso 10,3",
-            "director": "pepe",
-            "year": "aaaa",
-            "genero": "macho",
+            "titulo": "Attack on TItan",
+            "director": "ysayama",
+            "year": "2012",
+            "genero": "Accion",
+            "sinopsis": "genocidio",
+            "imagen": "/static/img/signito.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 15,
+            "titulo": "shrek",
+            "director": "Christopher Nolan",
+            "year": "1998",
+            "genero": "Comedia",
             "sinopsis": "aaa",
-            "imagen": "",
+            "imagen": "/static/img/signito.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 16,
+            "titulo": "Attack on TItan",
+            "director": "ysayama",
+            "year": "2012",
+            "genero": "Accion",
+            "sinopsis": "genocidio",
+            "imagen": "/static/img/signito.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 17,
+            "titulo": "gigante de hierro",
+            "director": "Steven Spielberg",
+            "year": "1998",
+            "genero": "Drama",
+            "sinopsis": "gigante bueno extraterrestre viaja a la tierra",
+            "imagen": "/static/img/signito.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 18,
+            "titulo": "shrek",
+            "director": "Un genio",
+            "year": "2000",
+            "genero": "Comedia",
+            "sinopsis": "un ogro que es un capo",
+            "imagen": "/static/img/signito.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 19,
+            "titulo": "Attack on TItan",
+            "director": "ysayama",
+            "year": "2012",
+            "genero": "Accion",
+            "sinopsis": "genocidio",
+            "imagen": "/static/img/signito.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 20,
+            "titulo": "shrek",
+            "director": "Christopher Nolan",
+            "year": "1998",
+            "genero": "Comedia",
+            "sinopsis": "aaa",
+            "imagen": "/static/img/signito.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 21,
+            "titulo": "shrek",
+            "director": "Christopher Nolan",
+            "year": "1998",
+            "genero": "Comedia",
+            "sinopsis": "aaa",
+            "imagen": "/static/img/signito.jpg",
+            "comentarios": []
+        },
+        {
+            "id": 22,
+            "titulo": "shrek",
+            "director": "Christopher Nolan",
+            "year": "1998",
+            "genero": "Comedia",
+            "sinopsis": "aaa",
+            "imagen": "/static/img/signito.jpg",
             "comentarios": []
         }
     ]

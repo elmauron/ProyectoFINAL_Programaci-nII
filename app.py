@@ -8,7 +8,9 @@ app = Flask(__name__)
 # Endpoint de pagina principal
 @app.route("/")
 def ruta_home():
-    return home()
+    page = request.args.get('p', 1, type=int)
+    print(f"pagina:{page}")
+    return home(p=page)
 
 
 @app.route("/resultados", methods=["POST"])
@@ -65,7 +67,9 @@ def login():
 # Ruta para bienvenida >> se pasan el parámetro de "usuario_actual" que es el usuario tomado desde LOGIN
 @app.route("/welcome/<usuario_actual>")
 def ruta_welcome(usuario_actual):
-    return welcome(usuario_actual)
+    p = request.args.get('p', 1, type=int)
+    print(f"pagina:{p}")
+    return welcome(usuario_actual, p)
 
 # Ruta para determinada pelicula
 
