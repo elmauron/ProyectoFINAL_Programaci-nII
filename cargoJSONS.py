@@ -25,3 +25,9 @@ def generos():
     with open("jsons/generos.json", "r") as file:
         generos = json.load(file)
     return generos
+
+
+def directores():
+    with open("jsons/directores.json", "r") as file:
+        directores = json.load(file)
+    return directores

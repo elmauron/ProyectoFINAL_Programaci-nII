@@ -1,18 +1,30 @@
 import json
 import uuid
 from datetime import datetime
+from flask_paginate import Pagination, get_page_args
 from flask import Flask, jsonify, request, redirect, url_for, render_template
-from cargoJSONS import usuarios, peliculas, generos
+from cargoJSONS import usuarios, peliculas, generos, directores
 
 
 # Funcion para mostrar peliculas en pantalla >> itera sobre la variable proveniente del archivo cargoJSONS.py
 # con estructura de datos en python de peliculas y las muestra todas.
-def home():
-    peliculas_list = []
+def home(p):
+
+    p, per_page, offset = get_page_args(
+        page_parameter='p', per_page_parameter='per_page')
+
     peliculas_result = peliculas()
-    for pelicula in peliculas_result["peliculas"]:
-        peliculas_list.append(pelicula)
-    return render_template("home.html", peliculas_list=peliculas_list)
+    peliculas_list = peliculas_result['peliculas']
+
+    print(f"Numero total de peliculas: {len(peliculas_list)}")
+    print(f"Pagina actual: {p}")
+
+    pagination = Pagination(page=p, per_page=per_page, total=len(
+        peliculas_list), css_framework='bootstrap4')
+    start = offset
+    end = start + per_page
+    peliculas_list = peliculas_list[start:end]
+    return render_template("home.html", peliculas_list=peliculas_list, pagination=pagination)
 
 
 # Funcion para buscar peliculas de directores especificos >> itera sobre la variable proveniente del archivo cargoJSONS.py
@@ -87,12 +99,24 @@ def check_login():
 
 
 # Funcion
-def welcome(usuario_actual):
-    peliculas_list = []
+def welcome(usuario_actual, p):
+
+    p, per_page, offset = get_page_args(
+        page_parameter='p', per_page_parameter='per_page')
+
     peliculas_result = peliculas()
-    for pelicula in peliculas_result["peliculas"]:
-        peliculas_list.append(pelicula)
-    return render_template("welcome.html", usuario_actual=usuario_actual,  peliculas_list=peliculas_list)
+    peliculas_list = peliculas_result['peliculas']
+
+    print(f"Numero total de peliculas: {len(peliculas_list)}")
+    print(f"Pagina actual: {p}")
+
+    pagination = Pagination(page=p, per_page=per_page, total=len(
+        peliculas_list), css_framework='bootstrap4')
+    start = offset
+    end = start + per_page
+    peliculas_list = peliculas_list[start:end]
+
+    return render_template("welcome.html", usuario_actual=usuario_actual,  peliculas_list=peliculas_list, pagination=pagination)
 
 # Funcion para agregar comentarios >> Utiliza al usuario y el comentario que haga como parámetros y los guarda
 # en la variable "comment_info" a la par con la fecha y horario del comentario.
@@ -198,11 +222,17 @@ def editar_comentario(usuario_actual, id):
         return redirect(url_for("ruta_pelicula", usuario_actual=usuario_actual, id=id))
 
 # Funcion para agregar peliculas
+#  adapte la funcion para que si el director ya existe en el json no se agregue en directores.json
 
 
 def agregar_pelicula(usuario_actual):
     if request.method == "GET":
-        return render_template("agregar.html", usuario_actual=usuario_actual)
+        generos_result = generos()
+        generos_list = []
+        for genero in generos_result["generos"]:
+            generos_list.append(genero)
+            print(generos_list)
+        return render_template("agregar.html", generos_list=generos_list, usuario_actual=usuario_actual)
 
     if request.method == "POST":
         titulo = request.form.get("titulo")
@@ -222,6 +252,22 @@ def agregar_pelicula(usuario_actual):
             "imagen": "/static/img/signito.jpg",
             "comentarios": []
         }
+
+        directores_result = directores()
+        repetido = 0
+
+        for director in directores_result["directores"]:
+            if director["nombre"] == request.form.get("director"):
+                repetido = 1
+
+        if repetido == 0:
+            nuevo_director = {
+                "id": len(directores_result["directores"]) + 1,
+                "nombre": request.form.get("director")
+            }
+            directores_result["directores"].append(nuevo_director)
+            with open("jsons/directores.json", "w") as file:
+                json.dump(directores_result, file)
 
         peliculas_result["peliculas"].append(nueva_pelicula)
         with open("jsons/peliculas.json", "w") as file:

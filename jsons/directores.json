@@ -1,16 +1,24 @@
 {
     "directores": [
         {
-            "id": "1",
+            "id": 1,
             "nombre": "Steven Spielberg"
         },
         {
-            "id": "2",
+            "id": 2,
             "nombre": "Christopher Nolan"
         },
         {
-            "id": "3",
+            "id": 3,
             "nombre": "Stanley Kubrick"
+        },
+        {
+            "id": 4,
+            "nombre": "ysayama"
+        },
+        {
+            "id": 5,
+            "nombre": "Un genio"
         }
     ]
 }

@@ -1,27 +1,27 @@
 {
     "generos": [
         {
-            "id": "1",
-            "nombre": "Acción"
+            "id": 1,
+            "nombre": "Accion"
         },
         {
-            "id": "2",
+            "id": 2,
             "nombre": "Comedia"
         },
         {
-            "id": "3",
+            "id": 3,
             "nombre": "Drama"
         },
         {
-            "id": "4",
+            "id": 4,
             "nombre": "Romance"
         },
         {
-            "id": "5",
-            "nombre": "Ciencia Ficción"
+            "id": 5,
+            "nombre": "Ciencia Ficcion"
         },
         {
-            "id": "6",
+            "id": 6,
             "nombre": "Suspenso"
         }
     ]
