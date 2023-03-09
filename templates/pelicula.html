@@ -25,6 +25,7 @@
             </div>
             <div class="card-body">
                 <p>Director: {{ pelicula.director }}</p>
+                <p>Rating: {{promedio}}</p>
                 <p>Ano: {{ pelicula.year }}</p>
                 <p>Sinopsis: {{ pelicula.sinopsis }}</p>
                 <p>Genero: {{ pelicula.genero }}</p>
@@ -35,22 +36,25 @@
             <form method="POST" action="{{ url_for('ruta_pelicula', usuario_actual=usuario_actual, id=pelicula.id) }}">
                 <label for="comment">Add a Comment:</label><br>
                 <textarea id="comment" name="comentario" required></textarea><br>
+                <label for="rating">Ponle un puntaje (1-10):</label><br>
+                <input type="number" id="rating" name="rating" min="1" max="10" required><br>
                 <button type="submit">Submit</button>
             </form>
-
-            {% if pelicula.comentarios %}
-            <ul>
-                {% for comentario in pelicula.comentarios %}
-                <li>
-                    <p><span>{{ comentario.usuario }}: </span>{{ comentario.texto }}</p>
-                </li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-
-
-
         </div>
+
+        {% if pelicula.comentarios %}
+        <ul>
+            {% for comentario in pelicula.comentarios %}
+            <li>
+                <p><span>{{ comentario.usuario }}: </span>{{ comentario.texto }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+
+
+    </div>
 </body>
 
 </html>

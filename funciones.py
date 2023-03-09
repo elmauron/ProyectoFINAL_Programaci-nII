@@ -124,9 +124,10 @@ def welcome(usuario_actual, p):
 # Despues se agrega el nuevo comentario a la lista de comentarios.
 
 
-def cargar_comentario(usuario_actual, comment, id_int):
+def cargar_comentario(usuario_actual, comment, rating, id_int):
 
     print(comment)
+    print(rating)
 
     comment_id = str(uuid.uuid4())  # genera un ID unico para cada comment
 
@@ -138,6 +139,7 @@ def cargar_comentario(usuario_actual, comment, id_int):
     for pelicula in peliculas_result["peliculas"]:
         if pelicula["id"] == id_int:
             pelicula["comentarios"].append(comment_info)
+            pelicula["rating"].append(int(rating))
 
     with open("jsons/peliculas.json", "w") as file:
         json.dump(peliculas_result, file)
@@ -149,16 +151,21 @@ def peliculasCRUD(usuario_actual, id):
     id_int = int(id)
 
     if request.method == "GET":
+
         peliculas_result = peliculas()
+        promedio_result = promedio(id)
+
         for pelicula in peliculas_result["peliculas"]:
             if pelicula["id"] == id:
-                return render_template("pelicula.html", pelicula=pelicula, usuario_actual=usuario_actual)
+                return render_template("pelicula.html", pelicula=pelicula, usuario_actual=usuario_actual, promedio=promedio_result)
 
     if request.method == "POST":
         print("llego a post")
+
         comment = request.form.get("comentario")
-        print(comment)
-        cargar_comentario(usuario_actual, comment, id_int)
+        rating = request.form.get("rating")
+
+        cargar_comentario(usuario_actual, comment, rating, id_int)
         return redirect(url_for("ruta_pelicula", usuario_actual=usuario_actual, id=id))
 
     if request.method == "DELETE":
@@ -315,3 +322,13 @@ def devolver_pelicula_con_imagen():
             if pelicula["imagen"]:
                 peliculas_con_imagen.append(pelicula["titulo"])
         return peliculas_con_imagen
+
+
+def promedio(id):
+    peliculas_result = peliculas()
+
+    for pelicula in peliculas_result["peliculas"]:
+        if pelicula["id"] == id:
+            promedio = sum(pelicula["rating"]) / len(pelicula["rating"])
+
+    return (promedio)
