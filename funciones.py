@@ -5,9 +5,10 @@ from flask_paginate import Pagination, get_page_args
 from flask import Flask, jsonify, request, redirect, url_for, render_template
 from cargoJSONS import usuarios, peliculas, generos, directores
 
-
 # Funcion para mostrar peliculas en pantalla >> itera sobre la variable proveniente del archivo cargoJSONS.py
 # con estructura de datos en python de peliculas y las muestra todas.
+
+
 def home(p):
 
     p, per_page, offset = get_page_args(
@@ -195,6 +196,17 @@ def editar_pelicula(usuario_actual, id):
         with open("jsons/peliculas.json", "r") as json_file:
             data = json.load(json_file)
 
+        path_imagen = None
+
+        if 'imagen' in request.files:
+            image_file = request.files['imagen']
+            image_file.save('static/img/' + image_file.filename)
+            path_imagen = '/static/img/' + image_file.filename
+
+            for pelicula in data["peliculas"]:
+                if pelicula["id"] == id:
+                    pelicula["imagen"] = path_imagen
+
         # Actualiza los datos necesarios
         for pelicula in data["peliculas"]:
             if pelicula["id"] == id:
@@ -202,7 +214,6 @@ def editar_pelicula(usuario_actual, id):
                 pelicula["director"] = request.form.get("director")
                 pelicula["year"] = request.form.get("year")
                 pelicula["sinopsis"] = request.form.get("sinopsis")
-                pelicula["imagen"] = request.form.get("imagen")
 
         # Guarda los cambios en el archivo JSON
         with open("jsons/peliculas.json", "w") as json_file:
@@ -248,15 +259,22 @@ def agregar_pelicula(usuario_actual):
         genero = request.form.get("genero")
         sinopsis = request.form.get("sinopsis")
 
+        if 'imagen' in request.files:
+            image_file = request.files['imagen']
+            image_file.save('static/img/' + image_file.filename)
+            path_imagen = '/static/img/' + image_file.filename
+
         peliculas_result = peliculas()
+
         nueva_pelicula = {
             "id": len(peliculas_result["peliculas"]) + 1,
             "titulo": titulo,
             "director": director,
+            "rating": [],
             "year": year,
             "genero": genero,
             "sinopsis": sinopsis,
-            "imagen": "/static/img/signito.jpg",
+            "imagen": path_imagen,
             "comentarios": []
         }
 
@@ -328,7 +346,9 @@ def promedio(id):
     peliculas_result = peliculas()
 
     for pelicula in peliculas_result["peliculas"]:
-        if pelicula["id"] == id:
+        if pelicula["id"] == id and len(pelicula["rating"]) > 0:
             promedio = sum(pelicula["rating"]) / len(pelicula["rating"])
+        elif pelicula["id"] == id and len(pelicula["rating"]) <= 0:
+            promedio = 0
 
     return (promedio)

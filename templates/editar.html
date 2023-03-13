@@ -8,8 +8,8 @@
 <body>
     <h1>Editar Película</h1>
     <img src="{{ pelicula.imagen }}" alt="{{ pelicula.titulo }}" width="200" height="300">
-    <p>{{ pelicula.sinopsis }}</p>
-    <form action="{{ url_for('ruta_editar', usuario_actual=usuario_actual, id=pelicula.id) }}" method="POST">
+    <form action="{{ url_for('ruta_editar', usuario_actual=usuario_actual, id=pelicula.id) }}" method="POST"
+        enctype="multipart/form-data">
 
         <label for="titulo">Título:</label>
         <input type="text" name="titulo" value="{{ pelicula.titulo }}" required><br><br>
@@ -23,8 +23,8 @@
         <label for="sinopsis">Sinopsis:</label>
         <textarea name="sinopsis" rows="10" cols="50">{{ pelicula.sinopsis }}</textarea><br><br>
 
-        <label for="imagen">URL del póster:</label>
-        <input type="text" name="imagen" value="{{ pelicula.imagen }}" required><br><br>
+        <label for="imagen">Imagen:</label>
+        <input type="file" id="imagen" name="imagen" required><br><br>
 
         <input type="submit" value="Guardar Cambios">
 

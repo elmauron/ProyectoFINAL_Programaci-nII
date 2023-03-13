@@ -14,7 +14,8 @@
 
 <body>
   <div class="form-box">
-    <form method="POST" action="{{ url_for('ruta_agregar',usuario_actual=usuario_actual) }}">
+    <form method="POST" action="{{ url_for('ruta_agregar',usuario_actual=usuario_actual) }}"
+      enctype="multipart/form-data">
       <h2>Agrega tu pelicula</h2>
       <div class="input-box">
         <input type="text" name="titulo" required><br>
@@ -40,6 +41,10 @@
       <div class="input-box">
         <input type="text" name="sinopsis" required><br>
         <label for="sinopsis">Sinopsis</label>
+      </div>
+      <div class="input-box">
+        <label for="imagen">Imagen</label>
+        <input type="file" id="imagen" name="imagen" required>
       </div>
       <button type="submit">Agregar</button>
     </form>

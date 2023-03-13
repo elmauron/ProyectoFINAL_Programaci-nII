@@ -16,12 +16,12 @@
     <header>
         <h1>{{ pelicula.titulo }}</h1>
         <a href="{{ url_for('ruta_editar', usuario_actual=usuario_actual, id=pelicula.id) }}" class="button">Editar
-            Películaa</a>
+            Película</a>
     </header>
     <div class="row">
         <div class="col-lg-4">
             <div class="card">
-                <img src="{{ pelicula.imagen }}" class="card-img-top" alt="">
+                <img src="{{ pelicula.imagen }}" class="card-img-top" alt="...">
             </div>
             <div class="card-body">
                 <p>Director: {{ pelicula.director }}</p>
